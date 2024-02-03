@@ -264,3 +264,17 @@ thead tr th:last-child {
   z-index: 9;
   pointer-events: auto;
 }
+
+.overlapClass{
+  z-index: 99999 !important;
+}
+
+.dropTitle{
+  font-size: 24px !important;
+ font-weight: 600 !important;
+}
+
+.subOptions{
+  margin-bottom: 5px !important;
+  font-size: 18px !important;
+}

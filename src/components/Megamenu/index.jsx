@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
 import Logo from '../../assets/images/logos.svg';
+import Avatar from '../../assets/images/avatar.png';
+import Cart from '../../icons/availableIcon';
 const FashionMegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -36,29 +38,43 @@ const FashionMegaMenu = () => {
 
   return (
     <>
-      <div class="navbar">
+      <div class="navbar flex justify-between items-center bg-grey-500">
         <a href="#home" class="mx-7 navbar-logo">
           <img src={Logo} alt="Logo" className="h-24" />
         </a>
         <div class="dropdown">
-          <button class="dropbtn">
+          <button class="flex items-left font-bold text-xl">
             Categories
             <i class="fa fa-caret-down"></i>
           </button>
-          <div class="dropdown-content">
-            <div class="column">
-              <h3>Mens</h3>
+          <div class="dropdown-content overlapClass mt-10 ml-15">
+            <div class="column ml-10 mb-10">
+              <h3 className="dropTitle">Mens</h3>
               <a href="#">Suits</a>
               <a href="#">Shirts</a>
               <a href="#">Formal Trousers</a>
               <a href="#">Tuxedos</a>
             </div>
-            <div class="column">
-              <h3>Womens</h3>
+            <div class="column mb-10">
+              <h3 className="dropTitle">Womens</h3>
               <a href="#">Dresses</a>
               <a href="#">Blouses</a>
               <a href="#">Skirts</a>
               <a href="#">Leggings</a>
+            </div>
+          </div>
+        </div>
+        <div className="mr-5">
+          <div className="flex items-center gap-3">
+            <div className="relative min-w-[48px] border-2 border-black">
+              <Cart/>
+            </div>
+            <div className="relative min-w-[48px] border-2 border-black">
+              <img
+                src={Avatar}
+                className="object-cover w-16 h-16 border-2 border-white rounded-full"
+                alt=""
+              />
             </div>
           </div>
         </div>
