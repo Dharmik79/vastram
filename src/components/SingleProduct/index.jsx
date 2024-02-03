@@ -2,6 +2,8 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getResponse } from '../../services/CommonAPI';
 import SvgIcon from '../../assets/images/sprite.svg';
+import { GlobalContext } from './../../context/States/GlobalState';
+
 export default function index() {
   const [searchParams] = useSearchParams();
   const [state, setState] = React.useState({
@@ -21,11 +23,12 @@ export default function index() {
       console.log(e);
     }
   };
+  const { addCart, Global } = React.useContext(GlobalContext);
 
   React.useEffect(() => {
     getSingleData();
   }, []);
-  console.log(state?.data);
+
   return (
     <div class="page">
       <div class="card section">
@@ -98,18 +101,43 @@ export default function index() {
               </div>
 
               <div class="card__control">
-                <button className=" text-black" onClick={()=>{
-                  setState({data:{...state.data,count:(state?.data?.count ||1)-1}})
-                }}>-</button>
-                <input className="text-black" type="text" value={state?.data?.count ||1} size="3" />
-                <button className=" text-black" onClick={()=>{
-                  setState({data:{...state.data,count:(state?.data?.count || 1)+1}})
-                }}>+</button>
+                <button
+                  className=" text-black"
+                  onClick={() => {
+                    setState({
+                      data: {
+                        ...state.data,
+                        count: (state?.data?.count || 1) - 1,
+                      },
+                    });
+                  }}
+                >
+                  -
+                </button>
+                <input
+                  className="text-black"
+                  type="text"
+                  value={state?.data?.count || 1}
+                  size="3"
+                />
+                <button
+                  className=" text-black"
+                  onClick={() => {
+                    setState({
+                      data: {
+                        ...state.data,
+                        count: (state?.data?.count || 1) + 1,
+                      },
+                    });
+                  }}
+                >
+                  +
+                </button>
 
                 <a
                   class="card__btn btn btn_green"
                   onClick={() => {
-                    console.log('Add to cart clicked');
+                    addCart(state?.data);
                   }}
                 >
                   Add to Cart
