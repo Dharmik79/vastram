@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { getResponse } from '../../services/CommonAPI';
 import SvgIcon from '../../assets/images/sprite.svg';
 import { GlobalContext } from './../../context/States/GlobalState';
@@ -115,40 +115,41 @@ export default function index() {
                 </div>
               </div>
 
-              <div class="card__control">
-                <button
-                  className=" text-black"
-                  onClick={() => {
-                    setState({
-                      data: {
-                        ...state.data,
-                        count: (state?.data?.count || 1) - 1,
-                      },
-                    });
-                  }}
-                >
-                  -
-                </button>
-                <input
-                  className="text-black"
-                  type="text"
-                  value={state?.data?.count || 1}
-                  size="3"
-                />
-                <button
-                  className=" text-black"
-                  onClick={() => {
-                    setState({
-                      data: {
-                        ...state.data,
-                        count: (state?.data?.count || 1) + 1,
-                      },
-                    });
-                  }}
-                >
-                  +
-                </button>
-
+              <div class="card__control ">
+                <div className="flex items-center mx-7">
+                  <button
+                    className=" text-black"
+                    onClick={() => {
+                      setState({
+                        data: {
+                          ...state.data,
+                          count: (state?.data?.count || 1) - 1,
+                        },
+                      });
+                    }}
+                  >
+                    -
+                  </button>
+                  <input
+                    className="text-black text-center"
+                    type="text"
+                    value={state?.data?.count || 1}
+                    size="2"
+                  />
+                  <button
+                    className=" text-black"
+                    onClick={() => {
+                      setState({
+                        data: {
+                          ...state.data,
+                          count: (state?.data?.count || 1) + 1,
+                        },
+                      });
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
                 <a
                   class="card__btn btn btn_green"
                   onClick={async () => {
@@ -156,8 +157,14 @@ export default function index() {
                     await addCart(state?.data);
                   }}
                 >
-                  Add to Cart
+                  Add Cart
                 </a>
+                <Link
+                  class="card__btn btn btn_green"
+                  to='/measurementForm'
+                >
+                  Customize
+                </Link>
               </div>
             </div>
           </div>

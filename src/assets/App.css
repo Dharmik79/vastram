@@ -278,3 +278,7 @@ thead tr th:last-child {
   margin-bottom: 5px !important;
   font-size: 18px !important;
 }
+
+.dropDownClass{
+  z-index: 9999 !important  
+}
