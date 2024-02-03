@@ -6,39 +6,19 @@ import Cart from '../../icons/availableIcon';
 import AvatarDropdown from './../../widget/AvatarDropdown';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from './../../context/States/GlobalState';
+import { getResponse } from '../../services/CommonAPI';
 const FashionMegaMenu = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
-  const token = window.sessionStorage?.getItem('token');
   const { Global } = React.useContext(GlobalContext);
-  const categories = [
-    {
-      name: 'Men',
-      subCategories: [
-        { name: 'Casual Wear', items: ['T-Shirts', 'Jeans', 'Shoes'] },
-        { name: 'Formal Wear', items: ['Suits', 'Ties', 'Shirts'] },
-        { name: 'Accessories', items: ['Watches', 'Wallets', 'Bags'] },
-      ],
-    },
-    {
-      name: 'Women',
-      subCategories: [
-        { name: 'Casual Wear', items: ['Dresses', 'Tops', 'Skirts'] },
-        {
-          name: 'Formal Wear',
-          items: ['Evening Gowns', 'Blazers', 'Pantsuits'],
-        },
-        { name: 'Accessories', items: ['Jewelry', 'Handbags', 'Scarves'] },
-      ],
-    },
-  ];
 
-  const handleMouseEnter = (name) => {
-    setActiveCategory(name);
-  };
+  const [state, setState] = React.useState({});
 
-  const handleMouseLeave = () => {
-    setActiveCategory(null);
+  const getData = async () => {
+    const res = await getResponse('/categories/getCategories/', {});
+    setState({ categories: res?.payload?.categories });
   };
+  React.useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
@@ -52,22 +32,13 @@ const FashionMegaMenu = () => {
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content overlapClass ml-15">
-            <div class="column">
-              <h3 className="dropTitle">Traditionals</h3>
-           
-            </div>
-            <div class="column ">
-              <h3 className="dropTitle">Jackets</h3>
-             
-            </div>
-            <div class="column ">
-            <h3 className="dropTitle">Wedding Wears</h3>
-           
-          </div>
-          <div class="column ">
-          <h3 className="dropTitle">Tank Tops</h3>
-         
-        </div>
+            {state?.categories?.map((item, key) => {
+              return (
+                <div class="column" key={key}>
+                  <h3 className="dropTitle"> {item?.text?.[0]}</h3>
+                </div>
+              );
+            })}
           </div>
         </div>
         {Global?.login?.admin && (
