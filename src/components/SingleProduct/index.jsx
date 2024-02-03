@@ -152,7 +152,7 @@ export default function index() {
                 <a
                   class="card__btn btn btn_green"
                   onClick={async () => {
-                    console.log('state?.data', state?.data);
+                   
                     await addCart(state?.data);
                   }}
                 >

@@ -2,10 +2,10 @@ import React from 'react';
 import { GlobalContext } from './../../context/States/GlobalState';
 
 import { postResponse } from '../../services/CommonAPI';
-
+import { useNavigate } from 'react-router-dom';
 const index = () => {
-  const { Global } = React.useContext(GlobalContext);
-
+  const { Global, updateCart } = React.useContext(GlobalContext);
+  const navigate = useNavigate();
   const total =
     Global?.cart?.reduce(
       (acc, item) => acc + (item?.price || 100) * (item?.count || 1),
@@ -33,8 +33,9 @@ const index = () => {
           cid: response?.payload?.createCart?.[0]?._id,
         });
 
-        if (orderProduct?.payload?.[0]) {
-          alert('Order Placed Successfully');
+        if (orderProduct?.payload?.createOrder) {
+          updateCart([]);
+          navigate('/');
         }
       }
     } catch (e) {

@@ -14,7 +14,7 @@ const initialState = {
   image: isValidJSON(image) ? JSON.parse(image) : undefined,
   role: isValidJSON(role) ? JSON.parse(role) : undefined,
   countData: {},
-  cart:[]
+  cart: [],
 };
 
 function isValidJSON(value) {
@@ -82,20 +82,27 @@ export const GlobalProvider = ({ children }) => {
       payload: login,
     });
   }
-  
+
   function addCart(item) {
     dispatch({
       type: 'UPDATE_CART',
-      payload: [...state.cart,item],
+      payload: [...state.cart, item],
     });
   }
 
   function deleteCart(item) {
     dispatch({
-      type: 'DELETE_CART',
-      payload: state.cart.filter((i)=>i.id!==item.id),
+      type: 'UPDATE_CART',
+      payload: state.cart.filter((i) => i.id !== item.id),
     });
   }
+  function updateCart(item) {
+    dispatch({
+      type: 'UPDATE_CART',
+      payload: [],
+    });
+  }
+
   function storeReset() {
     window.sessionStorage.clear();
     window.sessionStorage.clear();
@@ -116,7 +123,8 @@ export const GlobalProvider = ({ children }) => {
         storeImage,
         storeCountData,
         addCart,
-        deleteCart
+        deleteCart,
+        updateCart
       }}
     >
       {children}
