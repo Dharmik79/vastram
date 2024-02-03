@@ -1,8 +1,14 @@
 import React from 'react';
 import { GlobalContext } from '../../context/States/GlobalState';
 import { Link } from 'react-router-dom';
+import './index.css';
 const index = () => {
   const { Global } = React.useContext(GlobalContext);
+  const data = [
+    { id: 1, name: 'Product A', category: 'Category 1', price: '$100' },
+    { id: 2, name: 'Product B', category: 'Category 2', price: '$200' },
+    // Add more data as needed
+  ];
   return (
     <div>
       <div class="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-4">
@@ -31,36 +37,39 @@ const index = () => {
           </div>
         </div>
       </div>
+      <div className="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.category}</td>
+              <td>{item.price}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    
 
-      <div class="relative ">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" class="px-6 py-3 rounded-s-lg">
-                Order Date
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Status
-              </th>
-              <th scope="col" class="px-6 py-3 rounded-e-lg">
-                Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="bg-white dark:bg-gray-800">
-              <th
-                scope="row"
-                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Apple MacBook Pro 17"
-              </th>
-              <td class="px-6 py-4">1</td>
-              <td class="px-6 py-4">$2999</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+
+
+   
+
+
+
+  
+  
     </div>
   );
 };
