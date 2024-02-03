@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: #1e1e1d;
+  font-weight: 300;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0;
+}
+.select__menu {
+  z-index: 9999 !important;
+}
+
+.btn-check:focus + .btn,
+.btn:focus {
+  box-shadow: none !important;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #eabfd7;
+  color: #1e1e1d;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.OTP_Group {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  /* border-bottom: 2px solid #7e7373; */
+  text-align: center;
+  font-size: 25px;
+}
+
+.VerticalDirection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+/* //START:: Header CSS */
+.header {
+  background-color: #f3f3f3;
+}
+
+@media (max-width: 1023px) {
+  .blurImage {
+    background-color: #f3f3f3 !important;
+  }
+}
+
+.error-text {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+/* Modal Design */
+.ModalDesign {
+  background-color: #ffffff;
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+.modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: black;
+  display: flex;
+  opacity: 0;
+}
+.backgroundBlur {
+  background-color: rgba(0, 0, 0, 0.363);
+}
+
+/* Header Drop Down */
+.headerDropdown {
+  background-color: #ffff;
+}
+
+/* Random */
+.FlexCenter {
+  display: flex;
+  justify-content: center;
+}
+.CommonForm {
+  min-height: 500px;
+  padding-top: 50px;
+}
+
+.OtpNote {
+  font-weight: 500;
+}
+
+/* Table CSS */
+.table_title_count span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.table > :not(:first-child) {
+  border-top: 1px solid #e8e8e8;
+}
+
+thead tr:first-child {
+  display: none;
+}
+
+thead tr th:first-child {
+  border-left-width: 1px;
+  border-left-color: #e8e8e8;
+}
+
+thead tr th:last-child {
+  border-right-width: 1px;
+  border-right-color: #e8e8e8;
+}
+
+.last-child-td {
+  border-bottom-width: 0px !important;
+  border-bottom-color: #e8e8e8 !important;
+}
+
+.table-responsive {
+  margin-top: 10px;
+}
+
+.pagination {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deactivateStatus {
+  color: #ff0000;
+  background-color: #fce7e7;
+  border-color: #ff0000;
+}
+
+.statusButton {
+  padding: 9px 10px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+/* Status button */
+.toggleButtonTable {
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid;
+  min-width: 85px;
+}
+
+.activeStatus {
+  color: #008000;
+  background-color: #f2fef2;
+
+  border-color: #008000;
+}
+
+.deactivateStatus {
+  color: #ff0000;
+  background-color: #fce7e7;
+  border-color: #ff0000;
+}
+
+.boxHeight {
+  height: 44vh;
+  width: 100vh;
+}
+.UserProfile {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  padding: 50px;
+  border-radius: 5px;
+  border: 1px solid #e2e2e2;
+}
+.info_detail {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  padding: 50px;
+  border-radius: 5px;
+  border: 1px solid #e2e2e2;
+  width: 80%;
+}
+.info_header {
+  font-size: 40px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.info_title {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  display: flex;
+}
+.info_label {
+  font-size: 17px;
+  font-weight: 400;
+  margin-right: 5rem;
+  width: 4rem;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: -1;
+  pointer-events: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.overlay.show {
+  z-index: 9;
+  pointer-events: auto;
+}
