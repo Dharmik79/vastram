@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseURL = 'https://bfc1-142-3-80-206.ngrok-free.app/api/v1';
+const baseURL = 'https://1d61-142-3-80-206.ngrok-free.app/api/v1/';
 
 const token = window.sessionStorage?.getItem('token');
 export const api = axios.create({
