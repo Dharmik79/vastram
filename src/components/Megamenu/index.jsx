@@ -1,7 +1,8 @@
-import React from 'react';
-import './index.css'; // Assuming you have an external CSS file
-
+import React, { useState } from 'react';
+import './index.css';
 const FashionMegaMenu = () => {
+  const [activeCategory, setActiveCategory] = useState(null);
+
   const categories = [
     {
       name: 'Men',
@@ -15,32 +16,54 @@ const FashionMegaMenu = () => {
       name: 'Women',
       subCategories: [
         { name: 'Casual Wear', items: ['Dresses', 'Tops', 'Skirts'] },
-        { name: 'Formal Wear', items: ['Evening Gowns', 'Blazers', 'Pantsuits'] },
+        {
+          name: 'Formal Wear',
+          items: ['Evening Gowns', 'Blazers', 'Pantsuits'],
+        },
         { name: 'Accessories', items: ['Jewelry', 'Handbags', 'Scarves'] },
       ],
     },
   ];
 
+  const handleMouseEnter = (name) => {
+    setActiveCategory(name);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveCategory(null);
+  };
+
   return (
-    <div className="fashion-mega-menu">
-      {categories.map((category) => (
-        <div key={category.name} className="menu-item">
-          <h3>{category.name}</h3>
-          <div className="sub-categories">
-            {category.subCategories.map((sub) => (
-              <div key={sub.name}>
-                <h4>{sub.name}</h4>
-                <ul>
-                  {sub.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+    <>
+      <div class="navbar">
+        <div class="dropdown">
+          <button class="dropbtn">
+            Dropdown
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <div class="column">
+              <h3>Category 1</h3>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+            </div>
+            <div class="column">
+              <h3>Category 2</h3>
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+            <div class="column">
+              <h3>Category 3</h3>
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 };
 
