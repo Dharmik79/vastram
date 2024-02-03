@@ -183,56 +183,16 @@ export default function index() {
                 <div class="details__item">
                   <div class="details__box">
                     <div class="details__category">Material & Care</div>
-                    <div class="details__text">
-                      100% ORIGINAL guarantee for all products
-                    </div>
                   </div>
                 </div>
                 <div class="details__item">
-                  <div class="details__icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="32"
-                      height="32"
-                      fill="none"
-                    >
-                      <path
-                        d="M16 30s11-5.6 11-14V6.2L16 2 5 6.2V16c0 8.4 11 14 11 14z"
-                        stroke="#000"
-                        stroke-width="2.5"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </div>
                   <div class="details__box">
                     <div class="details__category">Dry Clean</div>
-                    <div class="details__text">
-                      Return within 14days of receiving your order
-                    </div>
                   </div>
                 </div>
                 <div class="details__item">
-                  <div class="details__icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M30 9L17.91 20.875l-6.364-6.25L2 24"></path>
-                      <path d="M22 9h8v8"></path>
-                    </svg>
-                  </div>
                   <div class="details__box">
-                    <div class="details__category">Trending</div>
-                    <div class="details__text">
-                      It is one of our most popular products that we have on
-                      offer.
-                    </div>
+                    <div class="details__category">Trending</div> 
                   </div>
                 </div>
               </div>
