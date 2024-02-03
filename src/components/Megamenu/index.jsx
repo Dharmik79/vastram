@@ -39,7 +39,7 @@ const FashionMegaMenu = () => {
   return (
     <>
       <div class="navbar flex justify-between items-center bg-grey-500">
-        <a href="#home" class="mx-7 navbar-logo">
+        <a href="/" class="mx-7 navbar-logo">
           <img src={Logo} alt="Logo" className="h-24" />
         </a>
         <div class="dropdown">
