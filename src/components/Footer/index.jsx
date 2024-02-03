@@ -15,7 +15,7 @@ export default function index() {
     getData();
   }, []);
   return (
-    <div className="">
+    <div className="bg-gray-100 rounded-lg shadow m-11 p-16">
       <footer class="footer">
         <div class="footer__center center">
           <div class="footer__row">
@@ -43,10 +43,10 @@ export default function index() {
                 />
               </a>
               <div class="footer__copyright">© 2024 - All rights reserved</div>
-              <div className='flex gap-x-5'>
-                <img src={faceBook} width={30} height={30}/>
-                <img src={instagram} width={30} height={30}/>
-                <img src={twitter} width={30} height={30}/>
+              <div className="flex gap-x-5">
+                <img src={faceBook} width={30} height={30} />
+                <img src={instagram} width={30} height={30} />
+                <img src={twitter} width={30} height={30} />
               </div>
             </div>
             <div class="footer__col">
