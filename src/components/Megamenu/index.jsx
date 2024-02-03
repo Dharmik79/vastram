@@ -7,6 +7,7 @@ import AvatarDropdown from './../../widget/AvatarDropdown';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from './../../context/States/GlobalState';
 import { getResponse } from '../../services/CommonAPI';
+
 const FashionMegaMenu = () => {
   const { Global } = React.useContext(GlobalContext);
 
@@ -35,7 +36,10 @@ const FashionMegaMenu = () => {
             {state?.categories?.map((item, key) => {
               return (
                 <div class="column" key={key}>
-                  <h3 className="dropTitle"> {item?.text?.[0]}</h3>
+                  <Link className="dropTitle" to={`/?id=${item?._id}`}>
+                    {' '}
+                    {item?.text?.[0]}
+                  </Link>
                 </div>
               );
             })}
