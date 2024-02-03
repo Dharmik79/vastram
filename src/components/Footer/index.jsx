@@ -18,7 +18,7 @@ export default function index() {
         <div class="footer__center center">
           <div class="footer__row">
             <div class="footer__col">
-              <a class="footer__logo" href="index.html">
+              <a class="footer__logo" href="/">
                 <img
                   class="footer__pic footer__pic_black-desktop"
                   src="../../assets/img/logo.svg"
@@ -64,7 +64,7 @@ export default function index() {
               <div class="footer__menu">
                 {state?.categories?.map((item) => {
                   return (
-                    <a class="footer__link" href="category.html">
+                    <a class="footer__link" href="/">
                       {item?.text?.[0]}
                     </a>
                   );

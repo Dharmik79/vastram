@@ -40,9 +40,7 @@ export default function index() {
                       </a>
                     </Link>
                   </div>
-                  <a class="product__name" href="product.html">
-                    Sun Cream
-                  </a>
+                 
                   <div class="product__details">
                     <div class="product__category yellow">{item?.name}</div>
                     <div class="product__price">
