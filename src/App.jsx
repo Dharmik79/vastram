@@ -1,5 +1,4 @@
 import { BrowserRouter } from 'react-router-dom';
-import SocketLayer from './SocketLayer';
 import MainApp from './MainApp';
 import Routes from './Routes';
 import './assets/App.css';
@@ -10,9 +9,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <MainApp>
-        <SocketLayer>
           <Routes />
-        </SocketLayer>
       </MainApp>
     </BrowserRouter>
   );

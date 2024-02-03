@@ -9,8 +9,6 @@ import {
 import { compact, find, head } from 'lodash';
 import { GlobalContext } from './context/States/GlobalState';
 import Loader from './components/Loader';
-import Chat from './components/Chat';
-import Schedule from './components/Schedule';
 
 const Home = lazy(() => import('./components/HomePage/index'));
 const HeaderLayout = lazy(() => import('./components/HeaderLayout/index'));
@@ -30,7 +28,7 @@ export default function Routes() {
       path: '/',
       name: 'HomePage',
       User: '6',
-      component: <Permission />,
+      // component: <Permission />,
       tokenAllow: true,
     },
     

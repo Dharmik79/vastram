@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SmallDownIcon from '../icons/smallDownIcon';
 import { GlobalContext } from '../context/States/GlobalState';
 import { Link } from 'react-router-dom';
-import Permission from './../components/Permission/index';
+// import Permission from './../components/Permission/index';
 import Avatar from '../assets/images/avatar.png';
 
 const AvatarDropdown = () => {

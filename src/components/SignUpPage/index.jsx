@@ -8,8 +8,6 @@ import { GlobalContext } from '../../context/States/GlobalState';
 import logo from '../../assets/images/logo1.png';
 import Input from '../../widget/input';
 import PasswordInput from '../../widget/passwordInput';
-import fImage from '../../assets/images/Image1.jpg';
-import sImage from '../../assets/images/Image2.jpg';
 import AuthenticationSIdebar from '../Login/AuthenticationSIdebar';
 
 const schema = yup.object().shape({

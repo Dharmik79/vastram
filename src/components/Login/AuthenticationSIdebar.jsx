@@ -1,7 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-import fImage from '../../assets/images/Image1.jpg';
-import sImage from '../../assets/images/Image2.jpg';
 import { GlobalContext } from '../../context/States/GlobalState';
 
 const AuthenticationSIdebar = () => {
@@ -59,8 +57,7 @@ const AuthenticationSIdebar = () => {
         </div>
         <div className="relative items-end hidden h-full min-h-screen text-white login-bg lg:flex bg-opacity-20">
           <img
-            // src="../../assets/images/loginbg.jpg"
-            src={fImage}
+            src="../../assets/images/loginbg.jpg"
             className="object-cover w-full h-full max-h-screen min-h-screen"
             alt=""
           />
@@ -72,8 +69,7 @@ const AuthenticationSIdebar = () => {
         </div>
         <div className="relative items-end hidden h-full min-h-screen text-white login-bg lg:flex bg-opacity-20">
           <img
-            // src="../../assets/images/loginbg.jpg"
-            src={sImage}
+            src="../../assets/images/loginbg.jpg"
             className="object-cover w-full h-full max-h-screen min-h-screen"
             alt=""
           />
