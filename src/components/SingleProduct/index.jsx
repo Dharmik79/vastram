@@ -4,7 +4,12 @@ import { getResponse } from '../../services/CommonAPI';
 
 export default function index() {
   const [searchParams] = useSearchParams();
-  const [state, setState] = React.useState({ data: {} });
+  const [state, setState] = React.useState({
+    data: {
+      count: 1,
+      sizeSelected: undefined,
+    },
+  });
   const getSingleData = async () => {
     try {
       let id = searchParams.get('id');
@@ -68,8 +73,21 @@ export default function index() {
               <h1 class="card__title title">{state?.data?.name}</h1>
               <div class="card__details">
                 {state?.data?.size?.map((sizeData, index) => {
+                  console.log(state?.data?.sizeSelected == sizeData);
                   return (
-                    <div class="card__category yellow" key={index}>
+                    <div
+                      className={`card__category   ${
+                        state?.data?.sizeSelected == sizeData
+                          ? 'green'
+                          : 'yellow'
+                      }`}
+                      key={index}
+                      onClick={() => {
+                        setState({
+                          data: { ...state.data, sizeSelected: sizeData },
+                        });
+                      }}
+                    >
                       {sizeData}
                     </div>
                   );
