@@ -8,10 +8,11 @@ import CloseIcon from '../../icons/closeIcon';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from './../../context/States/GlobalState';
 import { getResponse } from '../../services/CommonAPI';
-
 import FilterIcon from './../../icons/filterIcon';
+
 const FashionMegaMenu = () => {
   const { Global } = React.useContext(GlobalContext);
+  const [open, setOpen] = React.useState(false);
   const token = window.sessionStorage?.getItem('token');
 
   const [state, setState] = React.useState({});
@@ -31,22 +32,27 @@ const FashionMegaMenu = () => {
           <img src={Logo} alt="Logo" className="h-24" />
         </a>
         <div class="dropdown">
-          <button class="flex items-center font-bold text-xl">
+          <button
+            onClick={() => setOpen(!open)}
+            class="flex items-center font-bold text-xl"
+          >
             Categories
             <i class="fa fa-caret-down"></i>
           </button>
-          <div class="dropdown-content overlapClass ml-15">
-            {state?.categories?.map((item, key) => {
-              return (
-                <div class="column" key={key}>
-                  <Link className="dropTitle" to={`/?id=${item?._id}`}>
-                    {' '}
-                    {item?.text?.[0]}
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
+          {open && (
+            <div class=" overlapClass ml-15">
+              {state?.categories?.map((item, key) => {
+                return (
+                  <div class="column" key={key}>
+                    <Link className="dropTitle" to={`/?id=${item?._id}`}>
+                      {' '}
+                      {item?.text?.[0]}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
         {Global?.login?.admin && (
           <div className="mr-5">

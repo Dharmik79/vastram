@@ -38,22 +38,10 @@ export default function Table({ columns, data, ...props }) {
 
   return (
     <>
-      <div className="flex items-center justify-end">
-        {/* <div className="table_title_count">
-          Total <span>{data.length}</span> Records
-        </div> */}
-        {/* {Boolean(!props?.hideAddButton) && (
-          <button
-            data-modal-target="authentication-modal"
-            data-modal-toggle="authentication-modal"
-            className="px-3 py-1.5 text-sm transition hover:bg-primary hover:text-white bg-white border rounded-md border-primary text-primary"
-            onClick={props.handleAddClick}
-          >
-            + Add
-          </button>
-        )} */}
+      <div className="flex items-center justify-start ml-10 text-lg font-bold">
+        Order History
       </div>
-      <div className="table-responsive">
+      <div className="table-responsive mx-10">
         <table
           {...getTableProps()}
           className="table w-full border-b border-collapse border-gray-200"
@@ -105,18 +93,6 @@ export default function Table({ columns, data, ...props }) {
           </tbody>
         </table>
       </div>
-      <Pagination
-        canPreviousPage={canPreviousPage}
-        canNextPage={canNextPage}
-        pageOptions={pageOptions}
-        pageCount={pageCount}
-        gotoPage={gotoPage}
-        nextPage={nextPage}
-        previousPage={previousPage}
-        setPageSize={setPageSize}
-        pageIndex={pageIndex}
-        pageSize={pageSize}
-      />
     </>
   );
 }

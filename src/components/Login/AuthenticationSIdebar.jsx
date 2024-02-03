@@ -47,35 +47,36 @@ const AuthenticationSIdebar = () => {
         <div className="relative items-end hidden h-full min-h-screen text-white login-bg lg:flex bg-opacity-20">
           <img
             className="object-cover w-full h-full max-h-screen min-h-screen"
+            src="https://img.freepik.com/free-photo/young-women-posing-near-old-decorated-car_1153-6207.jpg?size=626&ext=jpg&ga=GA1.1.494128832.1706987226&semt=ais"
             alt=""
           />
           <div className="absolute left-0 right-0 z-10 px-10 py-6 text-center bg-primary w-[80%] mx-auto bottom-10">
             <h3 className="text-2xl font-bold">
-              it's clothing brands who focus on customization
+              Where Quality Meets Affordability{' '}
             </h3>
           </div>
         </div>
         <div className="relative items-end hidden h-full min-h-screen text-white login-bg lg:flex bg-opacity-20">
           <img
-            src="../../assets/images/loginbg.jpg"
+            src="https://img.freepik.com/free-photo/set-with-fashionable-women-s-clothing-skirt-sweater_169016-3210.jpg?size=626&ext=jpg&ga=GA1.1.494128832.1706987226&semt=ais"
             className="object-cover w-full h-full max-h-screen min-h-screen"
             alt=""
           />
           <div className="absolute left-0 right-0 z-10 px-10 py-6 text-center bg-primary w-[80%] mx-auto bottom-10">
             <h3 className="text-2xl font-bold">
-              it's clothing brands who focus on customization
+              Where Quality Meets Affordability{' '}
             </h3>
           </div>
         </div>
         <div className="relative items-end hidden h-full min-h-screen text-white login-bg lg:flex bg-opacity-20">
           <img
-            src="../../assets/images/loginbg.jpg"
+            src="https://img.freepik.com/free-photo/still-life-spring-wardrobe-switch_23-2150478968.jpg?size=626&ext=jpg&ga=GA1.1.494128832.1706987226&semt=ais"
             className="object-cover w-full h-full max-h-screen min-h-screen"
             alt=""
           />
           <div className="absolute left-0 right-0 z-10 px-10 py-6 text-center bg-primary w-[80%] mx-auto bottom-10">
             <h3 className="text-2xl font-bold">
-              it's clothing brands who focus on customization
+              Where Quality Meets Affordability{' '}
             </h3>
           </div>
         </div>

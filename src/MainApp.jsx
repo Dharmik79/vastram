@@ -55,7 +55,6 @@ function MainApp(props) {
             pauseOnHover
           />
           <div>{props.children}</div>
-          <Footer />
         </>
       )}
     </>

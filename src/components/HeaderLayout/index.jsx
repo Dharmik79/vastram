@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import LayoutWrapper from '../../components/Megamenu/index';
+import Footer from '../../components/Footer';
 
 export default function index({ hideHeaderPaths = [] }) {
   const { pathname } = useLocation();
@@ -10,6 +11,7 @@ export default function index({ hideHeaderPaths = [] }) {
         <>
           <LayoutWrapper />
           <Outlet />
+          <Footer />
         </>
       ) : (
         <Outlet />

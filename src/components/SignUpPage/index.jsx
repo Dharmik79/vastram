@@ -5,11 +5,10 @@ import * as yup from 'yup';
 import { Link, Navigate } from 'react-router-dom';
 import { Authentication } from '../../services/LogInAPI';
 import { GlobalContext } from '../../context/States/GlobalState';
-import logo from '../../assets/images/logo1.png';
+import logo from '../../assets/images/logos.svg';
 import Input from '../../widget/input';
 import PasswordInput from '../../widget/passwordInput';
 import AuthenticationSIdebar from '../Login/AuthenticationSIdebar';
-
 
 const schema = yup.object().shape({
   firstName: yup.string().required('Please Enter First Name'),

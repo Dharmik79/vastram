@@ -3,9 +3,47 @@ import { GlobalContext } from '../../context/States/GlobalState';
 import { Link } from 'react-router-dom';
 import './index.css';
 import { getResponse } from '../../services/CommonAPI';
+import Table from './../Table/index';
 const index = () => {
   const { Global } = React.useContext(GlobalContext);
   const [data, setData] = React.useState([]);
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Drop Off List',
+        columns: [
+          {
+            Header: 'Sr No.',
+            id: 'row',
+            Cell: ({ row }) => {
+              return row?.index + 1;
+            },
+          },
+          {
+            Header: 'Order ID',
+            accessor: `_id`,
+          },
+          {
+            Header: 'Order Date',
+            accessor: (row) =>
+              new Date(row.createdAt).toLocaleDateString('en-GB'),
+          },
+          {
+            Header: 'Order Status',
+            accessor: (row) =>
+              row.orderStatus === 1
+                ? 'Pending'
+                : row.orderStatus === 2 && 'Confirmed',
+          },
+          {
+            Header: 'Price',
+            accessor: 'price',
+          },
+        ],
+      },
+    ],
+    []
+  );
 
   const getData = async () => {
     try {
@@ -37,6 +75,7 @@ const index = () => {
                   class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                 />
               </div>
+              {console.log(data)}
             </div>
             <div class="w-full text-center mt-20">
               <div class="flex justify-center lg:pt-4 pt-8 mb-07"></div>
@@ -53,7 +92,12 @@ const index = () => {
           </div>
         </div>
       </div>
-      <div className="table-responsive">
+      <Table
+        columns={columns}
+        data={data}
+        handleEditButton={() => handleEditButton()}
+      ></Table>
+      {/* <div className="table-responsive">
         <table>
           <thead>
             <tr>
@@ -75,7 +119,7 @@ const index = () => {
             })}
           </tbody>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Authentication } from '../../services/LogInAPI/index';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { GlobalContext } from '../../context/States/GlobalState';
-import logo from '../../assets/images/logo1.png';
+import logo from '../../assets/images/logos.svg';
 import Input from '../../widget/input';
 import PasswordInput from '../../widget/passwordInput';
 import AuthenticationSIdebar from './AuthenticationSIdebar';

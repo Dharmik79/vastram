@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../context/States/GlobalState';
 
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo1.png';
+import logo from '../../assets/images/logos.svg';
 
 export default function OTP() {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ export default function OTP() {
       <div className="items-center hidden h-full p-10 text-white lg:flex lg:col-span-5 bg-opacity-20 login-bg xl:p-20">
         <div className="">
           <h3 className="text-2xl font-bold">
-            it's clothing brands who focus on customization
+            Where Quality Meets Affordability
           </h3>
           {/* <p className="mt-3 text-sm">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
