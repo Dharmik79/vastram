@@ -9,7 +9,7 @@ import logo from '../../assets/images/logo1.png';
 import Input from '../../widget/input';
 import PasswordInput from '../../widget/passwordInput';
 import AuthenticationSIdebar from '../Login/AuthenticationSIdebar';
-import { GlobalContext } from './../../context/States/GlobalState';
+
 
 const schema = yup.object().shape({
   firstName: yup.string().required('Please Enter First Name'),
