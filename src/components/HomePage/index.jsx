@@ -51,7 +51,7 @@ export default function index() {
                   </div>
 
                   <div class="product__details">
-                    <div class="product__category yellow">{item?.name}</div>
+                    <div class="product__category #480F27">{item?.name}</div>
                     <div class="product__price">
                       <span class="product__actual">${item?.price || 20}</span>
                     </div>
