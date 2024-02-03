@@ -20,6 +20,7 @@ const PasswordReset = lazy(() => import('./components/PasswordReset/index'));
 const ForgotPassword = lazy(() => import('./components/ForgotPassword/index'));
 const NoFound = lazy(() => import('./components/NoFound/index'));
 const LegalDoc = lazy(() => import('./components/LegalDoc/index'));
+const Faq= lazy(() => import('./components/Faq/index'));
 export default function Routes() {
   const { Global } = React.useContext(GlobalContext);
 
@@ -111,7 +112,10 @@ export default function Routes() {
           <Route path="/forgot-password" exact element={<ForgotPassword />} />
           <Route path="/reset-password" exact element={<PasswordReset />} />
           <Route path="/legal" exact element={<LegalDoc />} />
+          <Route path="/faq" exact element={< Faq/>} />
+
           <Route path="*" element={<NoFound />} />
+          
         </Route>
       </BaseRoutes>
     </React.Suspense>
