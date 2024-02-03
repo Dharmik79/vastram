@@ -306,6 +306,25 @@ const index = () => {
             />
           </div>
         )}
+
+        <>
+          <div className='mt-5'>
+            <label className="relative block mb-1.5 font-bold font-medium text-black">
+              {'Description'}
+            </label>
+            <input
+              type="textarea"
+              className={`bg-white focus:outline-none px-4 py-2.5 text-bold placeholder:text-mute w-full outline-none focus:border focus:border-primary transition border border-gray rounded-md `}
+              placeholder={'Please describe your own idea'}
+              name="desc"
+              max={50}
+              handleChange={(selectedOption) =>
+                formik.setFieldValue('desc', selectedOption)
+              }
+              value={formik.values.desc}
+            />
+          </div>
+        </>
         <button
           type="submit"
           className="mt-4 bg-primary w-full text-white px-4 py-2 rounded-md hover:bg-primary focus:outline-none focus:ring focus:border-primary"

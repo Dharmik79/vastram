@@ -3,8 +3,11 @@ import './index.css';
 import Logo from '../../assets/images/logos.svg';
 import Avatar from '../../assets/images/avatar.png';
 import Cart from '../../icons/availableIcon';
+import AvatarDropdown from './../../widget/AvatarDropdown';
+import { Link } from 'react-router-dom';
 const FashionMegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
+  const token = window.sessionStorage?.getItem('token');
 
   const categories = [
     {
@@ -67,15 +70,12 @@ const FashionMegaMenu = () => {
         <div className="mr-5">
           <div className="flex items-center gap-3">
             <div className="relative min-w-[48px] border-2 border-black">
-              <Cart/>
+              <Cart />
             </div>
-            <div className="relative min-w-[48px] border-2 border-black">
-              <img
-                src={Avatar}
-                className="object-cover w-16 h-16 border-2 border-white rounded-full"
-                alt=""
-              />
+            <div className="h-full pl-3">
+              <AvatarDropdown />
             </div>
+            
           </div>
         </div>
       </div>

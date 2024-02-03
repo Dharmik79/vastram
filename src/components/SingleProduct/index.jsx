@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { getResponse } from '../../services/CommonAPI';
 import SvgIcon from '../../assets/images/sprite.svg';
 import { GlobalContext } from './../../context/States/GlobalState';
@@ -100,48 +100,55 @@ export default function index() {
                 </div>
               </div>
 
-              <div class="card__control">
-                <button
-                  className=" text-black"
-                  onClick={() => {
-                    setState({
-                      data: {
-                        ...state.data,
-                        count: (state?.data?.count || 1) - 1,
-                      },
-                    });
-                  }}
-                >
-                  -
-                </button>
-                <input
-                  className="text-black"
-                  type="text"
-                  value={state?.data?.count || 1}
-                  size="3"
-                />
-                <button
-                  className=" text-black"
-                  onClick={() => {
-                    setState({
-                      data: {
-                        ...state.data,
-                        count: (state?.data?.count || 1) + 1,
-                      },
-                    });
-                  }}
-                >
-                  +
-                </button>
-
+              <div class="card__control ">
+                <div className="flex items-center mx-7">
+                  <button
+                    className=" text-black"
+                    onClick={() => {
+                      setState({
+                        data: {
+                          ...state.data,
+                          count: (state?.data?.count || 1) - 1,
+                        },
+                      });
+                    }}
+                  >
+                    -
+                  </button>
+                  <input
+                    className="text-black text-center"
+                    type="text"
+                    value={state?.data?.count || 1}
+                    size="2"
+                  />
+                  <button
+                    className=" text-black"
+                    onClick={() => {
+                      setState({
+                        data: {
+                          ...state.data,
+                          count: (state?.data?.count || 1) + 1,
+                        },
+                      });
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
                 <a
                   class="card__btn btn btn_green"
                   onClick={() => {
                     addCart(state?.data);
                   }}
                 >
-                  Add to Cart
+                  Add Cart
                 </a>
+                <Link
+                  class="card__btn btn btn_green"
+                  to='/measurementForm'
+                >
+                  Customize
+                </Link>
               </div>
             </div>
           </div>
@@ -153,79 +160,74 @@ export default function index() {
             <div class="details__col">
               <h1 class="details__title title">Size Chart</h1>
               <iframe
-              width="853"
-              height="480"
-              src="https://www.youtube.com/embed/UcveEV4sSoE"
-
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Embedded youtube"
-            />
-             
+                width="853"
+                height="480"
+                src="https://www.youtube.com/embed/UcveEV4sSoE"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+              />
             </div>
-            
+
             <div class="details__col">
-            <div>
-          
- 
-              <div class="details__item">
-            
-                <div class="details__box">
-                  <div class="details__category">Natural</div>
-                  <div class="details__text">
-                    We are using natural ingredients only when creating our
-                    products.
+              <div>
+                <div class="details__item">
+                  <div class="details__box">
+                    <div class="details__category">Natural</div>
+                    <div class="details__text">
+                      We are using natural ingredients only when creating our
+                      products.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="details__item">
-                <div class="details__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    fill="none"
-                  >
-                    <path
-                      d="M16 30s11-5.6 11-14V6.2L16 2 5 6.2V16c0 8.4 11 14 11 14z"
+                <div class="details__item">
+                  <div class="details__icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      fill="none"
+                    >
+                      <path
+                        d="M16 30s11-5.6 11-14V6.2L16 2 5 6.2V16c0 8.4 11 14 11 14z"
+                        stroke="#000"
+                        stroke-width="2.5"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="details__box">
+                    <div class="details__category">Full Protection</div>
+                    <div class="details__text">
+                      This product provides broad spectrum SPF 50 and blue light
+                      protection.
+                    </div>
+                  </div>
+                </div>
+                <div class="details__item">
+                  <div class="details__icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      fill="none"
                       stroke="#000"
                       stroke-width="2.5"
+                      stroke-linecap="round"
                       stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="details__box">
-                  <div class="details__category">Full Protection</div>
-                  <div class="details__text">
-                    This product provides broad spectrum SPF 50 and blue light
-                    protection.
+                    >
+                      <path d="M30 9L17.91 20.875l-6.364-6.25L2 24"></path>
+                      <path d="M22 9h8v8"></path>
+                    </svg>
+                  </div>
+                  <div class="details__box">
+                    <div class="details__category">Trending</div>
+                    <div class="details__text">
+                      It is one of our most popular products that we have on
+                      offer.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="details__item">
-                <div class="details__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M30 9L17.91 20.875l-6.364-6.25L2 24"></path>
-                    <path d="M22 9h8v8"></path>
-                  </svg>
-                </div>
-                <div class="details__box">
-                  <div class="details__category">Trending</div>
-                  <div class="details__text">
-                    It is one of our most popular products that we have on
-                    offer.
-                  </div>
-                </div>
-              </div>
               </div>
             </div>
           </div>
