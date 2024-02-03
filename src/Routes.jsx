@@ -12,6 +12,7 @@ import Loader from './components/Loader';
 
 const Home = lazy(() => import('./components/HomePage/index'));
 const HeaderLayout = lazy(() => import('./components/HeaderLayout/index'));
+const SingleProduct = lazy(() => import('./components/SingleProduct/index'));
 const Login = lazy(() => import('./components/Login/index'));
 const OTP = lazy(() => import('./components/OTP/index'));
 const SignUpPage = lazy(() => import('./components/SignUpPage/index'));
@@ -27,6 +28,13 @@ export default function Routes() {
     {
       path: '/',
       name: 'HomePage',
+      User: '6',
+      // component: <Permission />,
+      tokenAllow: true,
+    },
+    {
+      path: '/single-product',
+      name: 'SingleProductPage',
       User: '6',
       // component: <Permission />,
       tokenAllow: true,
@@ -79,6 +87,14 @@ export default function Routes() {
             element={
               <RestrictedRoutes>
                 <Home />
+              </RestrictedRoutes>
+            }
+          />
+          <Route
+            path="/single-product"
+            element={
+              <RestrictedRoutes>
+                <SingleProduct />
               </RestrictedRoutes>
             }
           />

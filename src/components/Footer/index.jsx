@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function index() {
   return (
-    <div className=''>
+    <div className="">
       <footer class="footer">
         <div class="footer__center center">
           <div class="footer__row">
@@ -10,22 +10,22 @@ export default function index() {
               <a class="footer__logo" href="index.html">
                 <img
                   class="footer__pic footer__pic_black-desktop"
-                  src="img/logo.svg"
+                  src="../../assets/img/logo.svg"
                   alt=""
                 />
                 <img
                   class="footer_pic footer__pic_white-desktop"
-                  src="img/logo-white.svg"
+                  src="../../assets/img/logo-white.svg"
                   alt=""
                 />
                 <img
                   class="footer_pic footer__pic_black-mobile"
-                  src="img/logo-mobile.svg"
+                  src="../../assets/img/logo-mobile.svg"
                   alt=""
                 />
                 <img
                   class="footer_pic footer__pic_white-mobile"
-                  src="img/logo-mobile-white.svg"
+                  src="../../assets/img/logo-mobile-white.svg"
                   alt=""
                 />
               </a>
