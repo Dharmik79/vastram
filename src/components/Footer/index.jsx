@@ -3,6 +3,7 @@ import { getResponse } from '../../services/CommonAPI';
 import faceBook from '../../assets/images/facebook.svg';
 import instagram from '../../assets/images/instagram.svg';
 import twitter from '../../assets/images/twitter.svg';
+import { Link } from 'react-router-dom';
 export default function index() {
   const [state, setState] = React.useState({});
 
@@ -54,9 +55,9 @@ export default function index() {
               <div class="footer__menu">
                 {state?.categories?.map((item) => {
                   return (
-                    <a class="footer__link" href="/">
+                    <Link class="footer__link" to={`/?id=${item._id}`}>
                       {item?.text?.[0]}
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
