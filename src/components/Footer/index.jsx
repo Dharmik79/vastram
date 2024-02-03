@@ -7,7 +7,6 @@ export default function index() {
   const getData = async () => {
     const res = await getResponse('/categories/getCategories/', {});
     setState({ categories: res?.payload?.categories });
-    console.log(res?.payload?.categories);
   };
   React.useEffect(() => {
     getData();

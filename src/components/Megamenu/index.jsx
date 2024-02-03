@@ -4,9 +4,12 @@ import Logo from '../../assets/images/logos.svg';
 import Avatar from '../../assets/images/avatar.png';
 import Cart from '../../icons/availableIcon';
 import AvatarDropdown from './../../widget/AvatarDropdown';
+import CloseIcon from '../../icons/closeIcon';
 import { Link } from 'react-router-dom';
+import FilterIcon from './../../icons/filterIcon';
 const FashionMegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
+  const [open, setOpen] = useState(false);
   const token = window.sessionStorage?.getItem('token');
 
   const categories = [
@@ -46,12 +49,12 @@ const FashionMegaMenu = () => {
           <img src={Logo} alt="Logo" className="h-24" />
         </a>
         <div class="dropdown">
-          <button class="flex items-left font-bold text-xl">
+          <button class="flex items-center font-bold text-xl">
             Categories
             <i class="fa fa-caret-down"></i>
           </button>
-          <div class="dropdown-content overlapClass ml-15">
-            <div class="column ml-10 mb-10">
+          <div class="w-50 dropdown-content overlapClass text-center">
+            <div class="column ml-10 mb-10 text-center">
               <h3 className="dropTitle">Mens</h3>
               <a href="#">Suits</a>
               <a href="#">Shirts</a>
@@ -69,13 +72,22 @@ const FashionMegaMenu = () => {
         </div>
         <div className="mr-5">
           <div className="flex items-center gap-3">
-            <div className="relative min-w-[48px] border-2 border-black">
+            <div className="h-full pl-3 border-black">
               <Cart />
             </div>
-            <div className="h-full pl-3">
+            <div className="h-full">
               <AvatarDropdown />
             </div>
-            
+            <div className="h-full">
+              <FilterIcon
+                onClick={() => {
+                  // Clear session storage
+                  sessionStorage.clear();
+                  // Optionally, you can also remove specific items from session storage using removeItem
+                  // sessionStorage.removeItem('yourKey');
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

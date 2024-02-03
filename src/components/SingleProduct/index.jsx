@@ -76,7 +76,6 @@ export default function index() {
               <h1 class="card__title title">{state?.data?.name}</h1>
               <div class="card__details">
                 {state?.data?.size?.map((sizeData, index) => {
-                  console.log(state?.data?.sizeSelected == sizeData);
                   return (
                     <div
                       className={`card__category   ${

@@ -23,7 +23,6 @@ export default function index() {
   React.useEffect(() => {
     getData();
   }, []);
-console.log(state)
   return (
     <div>
       <div class="products products_main section">
