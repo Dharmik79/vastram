@@ -33,7 +33,6 @@ export default function index() {
 
     getData(id);
   }, []);
-
   return (
     <div>
       <div class="products products_main section">

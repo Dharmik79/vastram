@@ -282,3 +282,7 @@ thead tr th:last-child {
 .dropDownClass{
   z-index: 9999 !important  
 }
+
+.overlappedClass{
+  z-index: 999999 !important;
+}
