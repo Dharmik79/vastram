@@ -21,6 +21,7 @@ const ForgotPassword = lazy(() => import('./components/ForgotPassword/index'));
 const NoFound = lazy(() => import('./components/NoFound/index'));
 const LegalDoc = lazy(() => import('./components/LegalDoc/index'));
 const Faq= lazy(() => import('./components/Faq/index'));
+const Checkout = lazy(() => import('./components/CheckOut/index'));
 export default function Routes() {
   const { Global } = React.useContext(GlobalContext);
 
@@ -46,6 +47,13 @@ export default function Routes() {
       User: '6',
       // component: <Permission />,
       tokenAllow: false,
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      User: '6',
+      // component: <Permission />,
+      tokenAllow: true,
     },
   ];
   const RestrictedRoutes = ({ children, ...props }) => {
@@ -106,6 +114,14 @@ export default function Routes() {
               </RestrictedRoutes>
             }
           />
+          <Route
+          path="/checkout"
+          element={
+            <RestrictedRoutes>
+              <Checkout />
+            </RestrictedRoutes>
+          }
+        />
           <Route path="/login" exact element={<Login />} />
           <Route path="/sign-up" exact element={<SignUpPage />} />
           <Route path="/NoFound" exact element={<NoFound />} />
