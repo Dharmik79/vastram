@@ -85,7 +85,7 @@ export default function Routes() {
   return (
     <React.Suspense fallback={<Loader />}>
       <BaseRoutes>
-        {/* <Route
+        <Route
           element={
             <HeaderLayout
               hideHeaderPaths={[
@@ -97,51 +97,50 @@ export default function Routes() {
               ]}
             />
           }
-        > */}
-        <Route
-          path="/"
-          element={
-            <RestrictedRoutes>
-              <Home />
-            </RestrictedRoutes>
-          }
-        />
-        <Route
-          path="/single-product"
-          element={
-            <RestrictedRoutes>
-              <SingleProduct />
-            </RestrictedRoutes>
-          }
-        />
-        <Route
-          path="/measurementForm"
-          element={
-            <RestrictedRoutes>
-              <Measurement />
-            </RestrictedRoutes>
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <RestrictedRoutes>
-              <Checkout />
-            </RestrictedRoutes>
-          }
-        />
-        <Route path="/login" exact element={<Login />} />
-        <Route path="/sign-up" exact element={<SignUpPage />} />
-        <Route path="/NoFound" exact element={<NoFound />} />
-        <Route path="/AboutUS" exact element={<AboutUS />} />
-        <Route path="/forgot-password" exact element={<ForgotPassword />} />
-        <Route path="/reset-password" exact element={<PasswordReset />} />
-        <Route path="/legal" exact element={<LegalDoc />} />
-        <Route path="/faq" exact element={<Faq />} />
+        >
+          <Route
+            path="/"
+            element={
+              <RestrictedRoutes>
+                <Home />
+              </RestrictedRoutes>
+            }
+          />
+          <Route
+            path="/single-product"
+            element={
+              <RestrictedRoutes>
+                <SingleProduct />
+              </RestrictedRoutes>
+            }
+          />
+          <Route
+            path="/measurementForm"
+            element={
+              <RestrictedRoutes>
+                <Measurement />
+              </RestrictedRoutes>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <RestrictedRoutes>
+                <Checkout />
+              </RestrictedRoutes>
+            }
+          />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="/sign-up" exact element={<SignUpPage />} />
+          <Route path="/NoFound" exact element={<NoFound />} />
+          <Route path="/AboutUS" exact element={<AboutUS />} />
+          <Route path="/forgot-password" exact element={<ForgotPassword />} />
+          <Route path="/reset-password" exact element={<PasswordReset />} />
+          <Route path="/legal" exact element={<LegalDoc />} />
+          <Route path="/faq" exact element={<Faq />} />
 
-        <Route path="*" element={<NoFound />} />
-
-        {/* </Route> */}
+          <Route path="*" element={<NoFound />} />
+        </Route>
       </BaseRoutes>
     </React.Suspense>
   );

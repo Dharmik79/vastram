@@ -13,7 +13,7 @@ export default function InputNumber({ formik, type, label, name }) {
           </label>
           <input
             type="number"
-            className={`bg-white focus:outline-none px-4 py-2.5 text-sm placeholder:text-mute w-full outline-none  border border-gray-500 rounded-md `}
+            className={`bg-white border-gray-400 border-solid focus:outline-none px-4 py-2.5 text-sm placeholder:text-mute w-full outline-none focus:border focus:border-primary transition border border-gray rounded-md`}
             id={name}
             name={name}
             onChange={formik.handleChange}

@@ -118,6 +118,7 @@ const index = () => {
           multiple={false}
           id="clothingType"
           name="clothingType"
+          label="Clothing Type"
           options={statusOptions}
           placeholder={'Select a clothing type'}
           className="basic-multi-select"
