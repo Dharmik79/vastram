@@ -19,7 +19,7 @@ const SignUpPage = lazy(() => import('./components/SignUpPage/index'));
 const PasswordReset = lazy(() => import('./components/PasswordReset/index'));
 const ForgotPassword = lazy(() => import('./components/ForgotPassword/index'));
 const NoFound = lazy(() => import('./components/NoFound/index'));
-
+const LegalDoc = lazy(() => import('./components/LegalDoc/index'));
 export default function Routes() {
   const { Global } = React.useContext(GlobalContext);
 
@@ -38,6 +38,13 @@ export default function Routes() {
       User: '6',
       // component: <Permission />,
       tokenAllow: true,
+    },
+    {
+      path: '/legal',
+      name: 'legalDoc',
+      User: '6',
+      // component: <Permission />,
+      tokenAllow: false,
     },
   ];
   const RestrictedRoutes = ({ children, ...props }) => {
@@ -103,6 +110,7 @@ export default function Routes() {
           <Route path="/NoFound" exact element={<NoFound />} />
           <Route path="/forgot-password" exact element={<ForgotPassword />} />
           <Route path="/reset-password" exact element={<PasswordReset />} />
+          <Route path="/legal" exact element={<LegalDoc />} />
           <Route path="*" element={<NoFound />} />
         </Route>
       </BaseRoutes>
