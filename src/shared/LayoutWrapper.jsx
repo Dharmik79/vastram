@@ -6,10 +6,9 @@ import HomeIcon from '../icons/homeIcon';
 import Header from './Header';
 import { GlobalContext } from '../context/States/GlobalState';
 import { getResponse } from '../services/CommonAPI';
-import { socket } from '../services/utilService';
 
 const LayoutWrapper = ({ children, searchbar, padding = 'p-5' }) => {
-  const { Global, socketRef } = React.useContext(GlobalContext);
+  const { Global } = React.useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const [toggled, setToggled] = useState(false);
   const [broken, setBroken] = useState(false);
@@ -49,7 +48,6 @@ const LayoutWrapper = ({ children, searchbar, padding = 'p-5' }) => {
               </div>
             )}
           </MenuItem>
-         
         </Menu>
       </Sidebar>
       <div className="w-full ">

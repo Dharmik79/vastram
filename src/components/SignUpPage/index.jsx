@@ -9,10 +9,10 @@ import logo from '../../assets/images/logo1.png';
 import Input from '../../widget/input';
 import PasswordInput from '../../widget/passwordInput';
 import AuthenticationSIdebar from '../Login/AuthenticationSIdebar';
+import { GlobalContext } from './../../context/States/GlobalState';
 
 const schema = yup.object().shape({
   firstName: yup.string().required('Please Enter First Name'),
-  lastName: yup.string().required('Please Enter Last Name'),
   email: yup
     .string()
     .email('Must be a valid email')
@@ -29,21 +29,22 @@ const schema = yup.object().shape({
 export default function SignUpPage() {
   const [state, setState] = React.useState({
     firstName: undefined,
-    lastName: undefined,
     password: undefined,
     confirmPassword: undefined,
     email: undefined,
-    userType: undefined,
-    redirect: false,
   });
+  const { storeLogin, storeImage } = React.useContext(GlobalContext);
+
   const handleSubmitButton = async () => {
-    const response = await Authentication('/api/v1/auth/register', {
-      firstName: state.firstName,
-      lastName: state.lastName,
+    const response = await Authentication('/admin/signup', {
+      name: state.firstName,
       email: state.email,
       password: state.password,
     });
-    if (response.STATUS === 'SUCCESS') {
+    response &&
+      (storeLogin(response?.payload),
+      window.sessionStorage.setItem('token', response?.payload?.token));
+    if (response.result === 0) {
       setState({ ...state, redirect: true });
     }
     return response;
@@ -63,7 +64,7 @@ export default function SignUpPage() {
         <>
           <Navigate
             to={{
-              pathname: '/login',
+              pathname: '/',
             }}
             state={{
               email: state.email,
@@ -91,23 +92,8 @@ export default function SignUpPage() {
           }) => (
             <>
               <div className="min-h-screen grid-cols-12 lg:grid">
-                <div className="h-screen overflow-hidden lg:col-span-5 login-sider">
-                  <Slider {...settings}>
-                    <div className="relative items-end hidden h-full min-h-screen text-white login-bg lg:flex bg-opacity-20">
-                      <img
-                        src="../../assets/images/loginbg.jpg"
-                        className="object-cover w-full h-full max-h-screen min-h-screen"
-                        alt=""
-                      />
-                      <div className="absolute z-10 px-10 pb-6 bottom-10">
-                        <h3 className="text-2xl font-bold">
-                          Vastram clothing brands custom
-                        </h3>
-                      </div>
-                    </div>
-                  </Slider>
-                </div>
-                <div className="flex items-center w-full max-w-2xl col-span-12 mx-auto overflow-auto lg:max-w-xl md:col-span-7">
+                <AuthenticationSIdebar />
+                <div className="mt-15 flex items-center w-full max-w-2xl col-span-12 mx-auto overflow-auto lg:max-w-xl md:col-span-7">
                   <div className="flex items-center w-full h-screen px-10 py-10 overflow-auto noscrollbar">
                     <div className="w-full sm:p-10 p-6 bg-white border border-[#ddd] shadow-[0px_2px_16px_0px_rgba(61,61,61,0.06)] rounded-2xl my-10">
                       <img src={logo} className="h-20 mx-auto" alt="" />
@@ -116,7 +102,7 @@ export default function SignUpPage() {
                       </h3>
                       <form className="grid gap-4 mt-4">
                         <Input
-                          label="First Name"
+                          label="Name"
                           placeholder="Enter first name"
                           mandatory
                           type="text"
@@ -131,23 +117,6 @@ export default function SignUpPage() {
                           value={values.firstName}
                           errors={errors.firstName}
                           touched={values.firstName}
-                        />
-                        <Input
-                          label="Last Name"
-                          placeholder="Enter last name"
-                          mandatory
-                          type="text"
-                          handleChange={(e) => {
-                            setFieldValue('lastName', e.target.value);
-                            setState({
-                              ...state,
-                              lastName: e.target.value,
-                            });
-                          }}
-                          name="lastName"
-                          value={values.lastName}
-                          errors={errors.lastName}
-                          touched={values.lastName}
                         />
                         <Input
                           label="Email"

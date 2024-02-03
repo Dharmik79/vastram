@@ -31,7 +31,6 @@ export default function Routes() {
       // component: <Permission />,
       tokenAllow: true,
     },
-    
   ];
   const RestrictedRoutes = ({ children, ...props }) => {
     const isAuthenticated = window.sessionStorage?.getItem('token');
@@ -47,11 +46,7 @@ export default function Routes() {
     if (newPath) {
       if (newPath?.tokenAllow) {
         if (isAuthenticated) {
-          if (newPath.User >= Global?.login?.roleWeight) {
-            return children;
-          } else {
-            window.location.href = '/';
-          }
+          return children;
         } else {
           return <Navigate to="/login" />;
         }

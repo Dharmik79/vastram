@@ -7,8 +7,8 @@ export async function Authentication(url, Payload) {
     const response = await authApi
       .post(url, Payload)
       .then((res) => {
-        if (res?.status === 200 && res?.data?.STATUS === 'SUCCESS') {
-          toast.success(res.data.MESSAGE, {
+        if (res?.status === 200 && res?.data?.result === 0) {
+          toast.success(res.data.message, {
             position: 'top-right',
             autoClose: 3000,
             hideProgressBar: true,
@@ -19,7 +19,7 @@ export async function Authentication(url, Payload) {
           });
           return res?.data;
         } else if (res?.status === 404) {
-          toast.error(res?.data?.MESSAGE, {
+          toast.error(res?.data?.message, {
             position: 'top-right',
             autoClose: 3000,
             hideProgressBar: true,
@@ -32,7 +32,7 @@ export async function Authentication(url, Payload) {
         return res?.data;
       })
       .catch((err) => {
-        toast.error(err?.response?.data?.MESSAGE, {
+        toast.error(err?.response?.data?.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -44,7 +44,7 @@ export async function Authentication(url, Payload) {
       });
     return response;
   } catch (err) {
-    toast.error(err?.response?.data?.MESSAGE, {
+    toast.error(err?.response?.data?.message, {
       position: 'top-right',
       autoClose: 3000,
       hideProgressBar: true,

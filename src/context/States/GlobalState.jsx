@@ -29,7 +29,6 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
-  const socketRef = useRef();
 
   function storeUser(user) {
     typeof user !== 'undefined' &&

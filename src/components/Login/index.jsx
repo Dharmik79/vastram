@@ -27,12 +27,11 @@ export default function LogIn() {
     email: undefined,
   });
   const handleSubmitButton = async () => {
-    const response = await Authentication('/api/v1/auth/login', state);
+    const response = await Authentication('/admin/login', state);
     response &&
-      (storeLogin(response?.DATA),
-      storeImage(response?.DATA?.profileImage),
-      window.sessionStorage.setItem('token', response?.DATA?.token));
-    if (response.STATUS === 'SUCCESS') {
+      (storeLogin(response?.payload),
+      window.sessionStorage.setItem('token', response?.payload?.token));
+    if (response.result === 0) {
       setTimeout(async () => {
         window.location.href = '/';
       }, 2000);

@@ -8,13 +8,13 @@ export default function index({ hideHeaderPaths = [] }) {
 
   return (
     <>
-      {!hideHeaderPaths.includes(pathname) ? (
+      {/* {!hideHeaderPaths.includes(pathname) ? (
         <LayoutWrapper>
           <Outlet />
         </LayoutWrapper>
-      ) : (
-        <Outlet />
-      )}
+      ) : ( */}
+      <Outlet />
+      {/* )} */}
     </>
   );
 }
