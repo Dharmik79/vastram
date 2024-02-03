@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getResponse } from '../../services/CommonAPI';
-
+import SvgIcon from '../../assets/images/sprite.svg';
 export default function index() {
   const [searchParams] = useSearchParams();
   const [state, setState] = React.useState({
@@ -98,41 +98,22 @@ export default function index() {
               </div>
 
               <div class="card__control">
-                <div class="card__counter counter js-counter">
-                  <button
-                    class="counter__btn counter__btn_minus js-counter-minus"
-                    type="button"
-                  >
-                    <svg class="icon icon-arrow-prev">
-                      <use xlink:href="img/sprite.svg#icon-arrow-prev"></use>
-                    </svg>
-                  </button>
-                  <input
-                    class="counter__input js-counter-input"
-                    type="text"
-                    value="1"
-                    size="3"
-                  />
-                  <button
-                    class="counter__btn counter__btn_plus js-counter-plus"
-                    type="button"
-                  >
-                    <svg class="icon icon-arrow-next">
-                      <use xlink:href="img/sprite.svg#icon-arrow-next"></use>
-                    </svg>
-                  </button>
-                </div>
-                <a class="card__btn btn btn_green" href="cart.html">
+                <button className=" text-black" onClick={()=>{
+                  setState({data:{...state.data,count:(state?.data?.count ||1)-1}})
+                }}>-</button>
+                <input className="text-black" type="text" value={state?.data?.count ||1} size="3" />
+                <button className=" text-black" onClick={()=>{
+                  setState({data:{...state.data,count:(state?.data?.count || 1)+1}})
+                }}>+</button>
+
+                <a
+                  class="card__btn btn btn_green"
+                  onClick={() => {
+                    console.log('Add to cart clicked');
+                  }}
+                >
                   Add to Cart
                 </a>
-                <button class="card__favorite">
-                  <svg class="icon icon-heart-border">
-                    <use xlink:href="img/sprite.svg#icon-heart-border"></use>
-                  </svg>
-                  <svg class="icon icon-heart-fill">
-                    <use xlink:href="img/sprite.svg#icon-heart-fill"></use>
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
