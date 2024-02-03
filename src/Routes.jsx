@@ -24,6 +24,9 @@ const NoFound = lazy(() => import('./components/NoFound/index'));
 const LegalDoc = lazy(() => import('./components/LegalDoc/index'));
 const Faq = lazy(() => import('./components/Faq/index'));
 const Checkout = lazy(() => import('./components/CheckOut/index'));
+const Cart = lazy(() => import('./components/Cart/index'));
+const Profile = lazy(() => import('./components/Profile/index'));
+
 export default function Routes() {
   const { Global } = React.useContext(GlobalContext);
 
@@ -53,6 +56,16 @@ export default function Routes() {
     {
       path: '/checkout',
       name: 'checkout',
+      tokenAllow: true,
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      tokenAllow: true,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
       tokenAllow: true,
     },
   ];
@@ -127,6 +140,23 @@ export default function Routes() {
             element={
               <RestrictedRoutes>
                 <Checkout />
+              </RestrictedRoutes>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <RestrictedRoutes>
+                <Cart />
+              </RestrictedRoutes>
+            }
+          />
+
+          <Route
+            path="/profile"
+            element={
+              <RestrictedRoutes>
+                <Profile />
               </RestrictedRoutes>
             }
           />

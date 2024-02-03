@@ -3,25 +3,35 @@ import * as yup from 'yup';
 import { GlobalContext } from './../../context/States/GlobalState';
 import makeAnimated from 'react-select/animated';
 import { getResponse } from '../../services/CommonAPI';
+import { useSearchParams, Link } from 'react-router-dom';
+
 const schema = yup.object().shape({
   firstName: yup.string().max(50).required('Please Enter Role'),
   lastName: yup.string().max(50).required('Please Enter Role'),
   email: yup.string().max(50).required('Please Enter Role'),
   role: yup.string().max(50).required('Please Enter Role'),
 });
-import { Link, Navigate } from 'react-router-dom';
 
 export default function index() {
+  const [searchParams] = useSearchParams();
+
   const [state, setState] = useState({ data: [] });
 
   const { addCart } = React.useContext(GlobalContext);
-  const getData = async () => {
-    const res = await getResponse('clothes/getClothes/', {});
+  const getData = async (id) => {
+    let query = 'clothes/getClothes/';
+
+    if (id) {
+      query = `clothes/getClothes/?cid=${id}`;
+    }
+    let res = await getResponse(query, {});
 
     setState({ data: res?.payload?.photos });
   };
   React.useEffect(() => {
-    getData();
+    let id = searchParams.get('id');
+
+    getData(id);
   }, []);
   return (
     <div>
@@ -39,9 +49,7 @@ export default function index() {
                       </a>
                     </Link>
                   </div>
-                  <a class="product__name" href="product.html">
-                    Sun Cream
-                  </a>
+
                   <div class="product__details">
                     <div class="product__category yellow">{item?.name}</div>
                     <div class="product__price">

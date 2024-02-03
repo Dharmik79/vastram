@@ -1,23 +1,27 @@
 import React from 'react';
 import { getResponse } from '../../services/CommonAPI';
-
+import faceBook from '../../assets/images/facebook.svg';
+import instagram from '../../assets/images/instagram.svg';
+import twitter from '../../assets/images/twitter.svg';
+import { Link } from 'react-router-dom';
 export default function index() {
   const [state, setState] = React.useState({});
 
   const getData = async () => {
     const res = await getResponse('/categories/getCategories/', {});
     setState({ categories: res?.payload?.categories });
+   
   };
   React.useEffect(() => {
     getData();
   }, []);
   return (
-    <div className="">
+    <div className="bg-gray-100 rounded-lg shadow m-11 p-16">
       <footer class="footer">
         <div class="footer__center center">
           <div class="footer__row">
             <div class="footer__col">
-              <a class="footer__logo" href="index.html">
+              <a class="footer__logo" href="/">
                 <img
                   class="footer__pic footer__pic_black-desktop"
                   src="../../assets/img/logo.svg"
@@ -40,22 +44,10 @@ export default function index() {
                 />
               </a>
               <div class="footer__copyright">© 2024 - All rights reserved</div>
-              <div class="footer__social social">
-                <a class="social_link" href="" target="_blank">
-                  <svg class="icon icon-instagram">
-                    <use href="img/sprite.svg#icon-instagram"></use>
-                  </svg>
-                </a>
-                <a class="social__link" href="" target="_blank">
-                  <svg class="icon icon-twitter">
-                    <use href="img/sprite.svg#icon-twitter"></use>
-                  </svg>
-                </a>
-                <a class="social__link" href="" target="_blank">
-                  <svg class="icon icon-facebook">
-                    <use href="img/sprite.svg#icon-facebook"></use>
-                  </svg>
-                </a>
+              <div className="flex gap-x-5">
+                <img src={faceBook} width={30} height={30} />
+                <img src={instagram} width={30} height={30} />
+                <img src={twitter} width={30} height={30} />
               </div>
             </div>
             <div class="footer__col">
@@ -63,9 +55,9 @@ export default function index() {
               <div class="footer__menu">
                 {state?.categories?.map((item) => {
                   return (
-                    <a class="footer__link" href="category.html">
+                    <Link class="footer__link" to={`/?id=${item._id}`}>
                       {item?.text?.[0]}
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
@@ -79,8 +71,7 @@ export default function index() {
                 <a class="footer__link" href="/faq">
                   Faq
                 </a>
-               
-                
+
                 <a class="footer__link" href="/legal">
                   Terms of Service
                 </a>

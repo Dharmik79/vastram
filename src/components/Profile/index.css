@@ -1,0 +1,24 @@
+.table-responsive {
+    overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  @media (max-width: 600px) {
+    th, td {
+      display: block; /* Stack table cells vertically on small screens */
+    }
+  }
+  
