@@ -65,9 +65,9 @@
   /* Create three equal columns that floats next to each other */
   .column {
     float: left;
-    width: 33.33%;
+    width: 25%;
     padding: 10px;
-    height: 250px;
+
   }
   
   /* Style links inside the columns */

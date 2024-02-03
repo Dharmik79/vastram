@@ -52,20 +52,22 @@ const FashionMegaMenu = () => {
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content overlapClass ml-15">
-            <div class="column ml-10 mb-10">
-              <h3 className="dropTitle">Mens</h3>
-              <a href="#">Suits</a>
-              <a href="#">Shirts</a>
-              <a href="#">Formal Trousers</a>
-              <a href="#">Tuxedos</a>
+            <div class="column">
+              <h3 className="dropTitle">Traditionals</h3>
+           
             </div>
-            <div class="column mb-10">
-              <h3 className="dropTitle">Womens</h3>
-              <a href="#">Dresses</a>
-              <a href="#">Blouses</a>
-              <a href="#">Skirts</a>
-              <a href="#">Leggings</a>
+            <div class="column ">
+              <h3 className="dropTitle">Jackets</h3>
+             
             </div>
+            <div class="column ">
+            <h3 className="dropTitle">Wedding Wears</h3>
+           
+          </div>
+          <div class="column ">
+          <h3 className="dropTitle">Tank Tops</h3>
+         
+        </div>
           </div>
         </div>
         {Global?.login?.admin && (
