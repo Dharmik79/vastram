@@ -1,8 +1,12 @@
 import React from 'react';
+import MegaMenu from "../Megamenu/index"
+
 
 const index = () => {
   return (
     <div class="page">
+
+    <MegaMenu/>
       <div class="checkout section js-checkout">
         <div class="checkout__center center">
           <h2 class="checkout__title title title_mb-lg">Checkout</h2>

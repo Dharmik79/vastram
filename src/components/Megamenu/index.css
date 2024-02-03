@@ -1,0 +1,45 @@
+.fashion-mega-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: #f8f9fa;
+  }
+  
+  .menu-item {
+    margin: 20px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .menu-item:hover .sub-categories {
+    display: block;
+  }
+  
+  .sub-categories {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+  }
+  
+  h4 {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+    color: #555;
+  }
+  
