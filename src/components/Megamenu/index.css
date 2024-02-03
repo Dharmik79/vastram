@@ -41,7 +41,7 @@
   
   /* Dropdown content (hidden by default) */
   .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
     background-color: #f9f9f9;
     width: 100%;

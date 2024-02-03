@@ -40,10 +40,10 @@ const FashionMegaMenu = () => {
             <i class="fa fa-caret-down"></i>
           </button>
           {open && (
-            <div class=" overlapClass ml-15">
+            <div class="dropdown-content overlapClass mt-10 ml-15">
               {state?.categories?.map((item, key) => {
                 return (
-                  <div class="column" key={key}>
+                  <div class="column" key={key} onClick={() => setOpen(false)}>
                     <Link className="dropTitle" to={`/?id=${item?._id}`}>
                       {' '}
                       {item?.text?.[0]}
