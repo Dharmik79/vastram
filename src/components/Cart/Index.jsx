@@ -86,7 +86,7 @@ const Index = () => {
                     <div class="cart__text">${Math.floor(total*1.11).toFixed(2)}</div>
                   </div>
                 </div>
-                <a class="cart__btn btn btn_green btn_wide" href="">
+                <a class="cart__btn btn btn_green btn_wide" href="/checkout">
                   Checkout
                 </a>
               </div>
