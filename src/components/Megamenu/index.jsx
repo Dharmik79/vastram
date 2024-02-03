@@ -5,6 +5,7 @@ import Avatar from '../../assets/images/avatar.png';
 import Cart from '../../icons/availableIcon';
 import AvatarDropdown from './../../widget/AvatarDropdown';
 import { Link } from 'react-router-dom';
+import { GlobalContext } from './../../context/States/GlobalState';
 const FashionMegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const token = window.sessionStorage?.getItem('token');
