@@ -1,6 +1,17 @@
 import React from 'react';
+import { getResponse } from '../../services/CommonAPI';
 
 export default function index() {
+  const [state, setState] = React.useState({});
+
+  const getData = async () => {
+    const res = await getResponse('/categories/getCategories/', {});
+    setState({ categories: res?.payload?.categories });
+    console.log(res?.payload?.categories);
+  };
+  React.useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="">
       <footer class="footer">
@@ -51,24 +62,13 @@ export default function index() {
             <div class="footer__col">
               <div class="footer__category">Categories</div>
               <div class="footer__menu">
-                <a class="footer__link" href="category.html">
-                  T Shirts
-                </a>{' '}
-                <a class="footer__link" href="category.html">
-                  Shirts
-                </a>{' '}
-                <a class="footer__link" href="category.html">
-                  Ethnic
-                </a>{' '}
-                <a class="footer__link" href="category.html">
-                  Casual
-                </a>{' '}
-                <a class="footer__link" href="category.html">
-                  Jeans
-                </a>
-                <a class="footer__link" href="category.html">
-                  Formal
-                </a>
+                {state?.categories?.map((item) => {
+                  return (
+                    <a class="footer__link" href="category.html">
+                      {item?.text?.[0]}
+                    </a>
+                  );
+                })}
               </div>
             </div>
             <div class="footer__col">

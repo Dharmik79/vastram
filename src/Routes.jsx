@@ -15,13 +15,14 @@ const HeaderLayout = lazy(() => import('./components/HeaderLayout/index'));
 const SingleProduct = lazy(() => import('./components/SingleProduct/index'));
 const Login = lazy(() => import('./components/Login/index'));
 const AboutUS = lazy(() => import('./components/AboutUS/index'));
+const Measurement = lazy(() => import('./components/Measurement/index'));
 const OTP = lazy(() => import('./components/OTP/index'));
 const SignUpPage = lazy(() => import('./components/SignUpPage/index'));
 const PasswordReset = lazy(() => import('./components/PasswordReset/index'));
 const ForgotPassword = lazy(() => import('./components/ForgotPassword/index'));
 const NoFound = lazy(() => import('./components/NoFound/index'));
 const LegalDoc = lazy(() => import('./components/LegalDoc/index'));
-const Faq= lazy(() => import('./components/Faq/index'));
+const Faq = lazy(() => import('./components/Faq/index'));
 const Checkout = lazy(() => import('./components/CheckOut/index'));
 export default function Routes() {
   const { Global } = React.useContext(GlobalContext);
@@ -32,28 +33,26 @@ export default function Routes() {
       path: '/',
       name: 'HomePage',
       User: '6',
-      // component: <Permission />,
       tokenAllow: true,
     },
     {
       path: '/single-product',
       name: 'SingleProductPage',
-      User: '6',
-      // component: <Permission />,
+      tokenAllow: true,
+    },
+    {
+      path: '/measurementForm',
+      name: 'Measurement Form',
       tokenAllow: true,
     },
     {
       path: '/legal',
       name: 'legalDoc',
-      User: '6',
-      // component: <Permission />,
       tokenAllow: false,
     },
     {
       path: '/checkout',
       name: 'checkout',
-      User: '6',
-      // component: <Permission />,
       tokenAllow: true,
     },
   ];
@@ -86,36 +85,44 @@ export default function Routes() {
   return (
     <React.Suspense fallback={<Loader />}>
       <BaseRoutes>
-        <Route
+        {/* <Route
           element={
             <HeaderLayout
               hideHeaderPaths={[
                 '/login',
-                // '/sign-up',
+                '/sign-up',
                 '/forgot-password',
                 '/reset-password',
                 // '/otp',
               ]}
             />
           }
-        >
-          <Route
-            path="/"
-            element={
-              <RestrictedRoutes>
-                <Home />
-              </RestrictedRoutes>
-            }
-          />
-          <Route
-            path="/single-product"
-            element={
-              <RestrictedRoutes>
-                <SingleProduct />
-              </RestrictedRoutes>
-            }
-          />
-          <Route
+        > */}
+        <Route
+          path="/"
+          element={
+            <RestrictedRoutes>
+              <Home />
+            </RestrictedRoutes>
+          }
+        />
+        <Route
+          path="/single-product"
+          element={
+            <RestrictedRoutes>
+              <SingleProduct />
+            </RestrictedRoutes>
+          }
+        />
+        <Route
+          path="/measurementForm"
+          element={
+            <RestrictedRoutes>
+              <Measurement />
+            </RestrictedRoutes>
+          }
+        />
+        <Route
           path="/checkout"
           element={
             <RestrictedRoutes>
@@ -123,18 +130,18 @@ export default function Routes() {
             </RestrictedRoutes>
           }
         />
-          <Route path="/login" exact element={<Login />} />
-          <Route path="/sign-up" exact element={<SignUpPage />} />
-          <Route path="/NoFound" exact element={<NoFound />} />
-          <Route path="/AboutUS" exact element={<AboutUS />} />
-          <Route path="/forgot-password" exact element={<ForgotPassword />} />
-          <Route path="/reset-password" exact element={<PasswordReset />} />
-          <Route path="/legal" exact element={<LegalDoc />} />
-          <Route path="/faq" exact element={< Faq/>} />
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/sign-up" exact element={<SignUpPage />} />
+        <Route path="/NoFound" exact element={<NoFound />} />
+        <Route path="/AboutUS" exact element={<AboutUS />} />
+        <Route path="/forgot-password" exact element={<ForgotPassword />} />
+        <Route path="/reset-password" exact element={<PasswordReset />} />
+        <Route path="/legal" exact element={<LegalDoc />} />
+        <Route path="/faq" exact element={<Faq />} />
 
-          <Route path="*" element={<NoFound />} />
-          
-        </Route>
+        <Route path="*" element={<NoFound />} />
+
+        {/* </Route> */}
       </BaseRoutes>
     </React.Suspense>
   );
