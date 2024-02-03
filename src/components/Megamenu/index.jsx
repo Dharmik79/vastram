@@ -47,7 +47,7 @@ const FashionMegaMenu = () => {
             Categories
             <i class="fa fa-caret-down"></i>
           </button>
-          <div class="dropdown-content overlapClass mt-10 ml-15">
+          <div class="dropdown-content overlapClass ml-15">
             <div class="column ml-10 mb-10">
               <h3 className="dropTitle">Mens</h3>
               <a href="#">Suits</a>
