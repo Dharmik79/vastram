@@ -74,19 +74,15 @@ export default function index() {
             <div class="footer__col">
               <div class="footer__category">Company</div>
               <div class="footer__menu">
-                <a class="footer__link" href="about-us.html">
+                <a class="footer__link" href="/AboutUS">
                   About
                 </a>
-                <a class="footer__link" href="faq.html">
+                <a class="footer__link" href="/faq">
                   Faq
                 </a>
-                <a class="footer__link" href="contacts.html">
-                  Contact
-                </a>
-                <a class="footer__link" href="#">
-                  Vision
-                </a>
-                <a class="footer__link" href="legal-page.html">
+               
+                
+                <a class="footer__link" href="/legal">
                   Terms of Service
                 </a>
               </div>

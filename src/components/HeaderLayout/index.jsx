@@ -9,9 +9,9 @@ export default function index({ hideHeaderPaths = [] }) {
   return (
     <>
        {!hideHeaderPaths.includes(pathname) ? (
-        <LayoutWrapper>
+       
           <Outlet />
-        </LayoutWrapper>
+
       ) : ( 
       <Outlet />
        )} 
