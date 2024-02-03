@@ -57,7 +57,7 @@ const index = ({
   return (
     <div className={inputCss}>
       {label && (
-        <label className="relative block mb-1.5 text-sm font-medium text-black">
+        <label className="relative block mb-1.5 text-sm text-3xl font-bold">
           {label}
           {mandatory && <span className="text-red-600"> *</span>}
         </label>
