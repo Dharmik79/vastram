@@ -31,7 +31,7 @@ export const postResponse = async (url, data) => {
     .post(url, data)
     .then((res) => {
       if (res.status === 200) {
-        toast.success(res.data.MESSAGE, {
+        toast.success(res.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -47,8 +47,8 @@ export const postResponse = async (url, data) => {
       if (err.response?.status == 403) {
         handle403Error();
       }
-      if (err.response?.data?.STATUS === 'FAILURE') {
-        toast.error(err.response.data.MESSAGE, {
+      if (err.response?.data?.result === -1) {
+        toast.error(err.response.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -74,7 +74,7 @@ export const postResponseWithoutNotification = async (url, data) => {
         handle403Error();
       }
       if (err.response?.data?.STATUS === 'FAILURE') {
-        toast.error(err.response.data.MESSAGE, {
+        toast.error(err.response.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -94,7 +94,7 @@ export const putResponse = async (url, data) => {
     .put(url, data)
     .then((res) => {
       if (res.status === 200) {
-        toast.success(res.data.MESSAGE, {
+        toast.success(res.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -111,7 +111,7 @@ export const putResponse = async (url, data) => {
         handle403Error();
       }
       if (err.response?.data?.STATUS === 'FAILURE') {
-        toast.error(err.response.data.MESSAGE, {
+        toast.error(err.response.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -131,7 +131,7 @@ export const deleteResponse = async (url, id) => {
     .delete(url, id)
     .then((res) => {
       if (res.status === 200) {
-        toast.success(res.data.MESSAGE, {
+        toast.success(res.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -148,7 +148,7 @@ export const deleteResponse = async (url, id) => {
         handle403Error();
       }
       if (err.response?.data?.STATUS === 'FAILURE') {
-        toast.error(err.response.data.MESSAGE, {
+        toast.error(err.response.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -184,7 +184,7 @@ export const getResponseNotification = async (url, data) => {
     .post(url, data)
     .then((res) => {
       if (res.status === 200) {
-        toast.success(res.data.DATA.MESSAGE, {
+        toast.success(res.data.DATA.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -201,7 +201,7 @@ export const getResponseNotification = async (url, data) => {
         handle403Error();
       }
       if (err.response?.data?.STATUS === 'FAILURE') {
-        toast.error(err.response.data.MESSAGE, {
+        toast.error(err.response.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -220,7 +220,7 @@ export const getApiResponseNotification = async (url, data) => {
     .get(url, data)
     .then((res) => {
       if (res.status === 200) {
-        toast.success(res.data.MESSAGE, {
+        toast.success(res.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,
@@ -237,7 +237,7 @@ export const getApiResponseNotification = async (url, data) => {
         handle403Error();
       }
       if (err.response?.data?.STATUS === 'FAILURE') {
-        toast.error(err.response.data.MESSAGE, {
+        toast.error(err.response.data.message, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: true,

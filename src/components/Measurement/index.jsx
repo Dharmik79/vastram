@@ -1,8 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputNumber from '../../widget/InputNumber';
 import Select from '../../widget/select';
+import { postResponse } from '../../services/CommonAPI';
+import { GlobalContext } from './../../context/States/GlobalState';
 
 const statusOptions = [
   { value: '', label: 'Select a clothing type' },
@@ -17,95 +20,208 @@ const statusOptions = [
 
 const measurementSchema = Yup.object().shape({
   // Measurements for Suits, Tuxedos, Dress Shirts, and Jackets
-  chest: Yup.number().required('Required'),
-  waist: Yup.number().required('Required'),
-  hips: Yup.number().required('Required'),
-  neck: Yup.number().required('Required'),
-  sleeveLength: Yup.number().required('Required'),
-  backLength: Yup.number().required('Required'),
-  shoulderWidth: Yup.number().required('Required'),
+  chest: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
+  waist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
+  hips: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
+  neck: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
+  sleeveLength: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
+  backLength: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
+  shoulderWidth: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'suits',
+    then: Yup.number().required('Required'),
+  }),
 
   // Measurements for Formal Trousers and Jeans
-  trouserWaist: Yup.number().required('Required'),
-  hip: Yup.number().required('Required'),
-  inseam: Yup.number().required('Required'),
-  outseam: Yup.number().required('Required'),
-  thigh: Yup.number().required('Required'),
+  trouserWaist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'trousers',
+    then: Yup.number().required('Required'),
+  }),
+  hip: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'trousers',
+    then: Yup.number().required('Required'),
+  }),
+  inseam: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'trousers',
+    then: Yup.number().required('Required'),
+  }),
+  outseam: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'trousers',
+    then: Yup.number().required('Required'),
+  }),
+  thigh: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'trousers',
+    then: Yup.number().required('Required'),
+  }),
 
   // Measurements for Athletic Shorts
-  shortsWaist: Yup.number().required('Required'),
-  shortsHip: Yup.number().required('Required'),
-  shortsOutseam: Yup.number().required('Required'),
+  shortsWaist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'shorts',
+    then: Yup.number().required('Required'),
+  }),
+  shortsHip: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'shorts',
+    then: Yup.number().required('Required'),
+  }),
+  shortsOutseam: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'shorts',
+    then: Yup.number().required('Required'),
+  }),
 
   // Measurements for Women's Clothing
-  bust: Yup.number().required('Required'),
-  womenWaist: Yup.number().required('Required'),
-  womenHips: Yup.number().required('Required'),
-  shoulderToWaist: Yup.number(),
-  totalLength: Yup.number(),
+  bust: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'women',
+    then: Yup.number().required('Required'),
+  }),
+  womenWaist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'women',
+    then: Yup.number().required('Required'),
+  }),
+  womenHips: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'women',
+    then: Yup.number().required('Required'),
+  }),
+  shoulderToWaist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'women',
+    then: Yup.number(),
+  }),
+  totalLength: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'women',
+    then: Yup.number(),
+  }),
 
   // Measurements for Skirts
-  skirtWaist: Yup.number().required('Required'),
-  skirtHips: Yup.number().required('Required'),
-  skirtLength: Yup.number().required('Required'),
+  skirtWaist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'skirts',
+    then: Yup.number().required('Required'),
+  }),
+  skirtHips: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'skirts',
+    then: Yup.number().required('Required'),
+  }),
+  skirtLength: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'skirts',
+    then: Yup.number().required('Required'),
+  }),
 
   // Measurements for Leggings and Yoga Pants
-  leggingsWaist: Yup.number().required('Required'),
-  leggingsHips: Yup.number().required('Required'),
-  inseamLeggings: Yup.number().required('Required'),
-  thighLeggings: Yup.number().required('Required'),
+  leggingsWaist: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'leggings',
+    then: Yup.number().required('Required'),
+  }),
+  leggingsHips: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'leggings',
+    then: Yup.number().required('Required'),
+  }),
+  inseamLeggings: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'leggings',
+    then: Yup.number().required('Required'),
+  }),
+  thighLeggings: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'leggings',
+    then: Yup.number().required('Required'),
+  }),
 
   // Measurements for Sports Bras
-  sportsBraBust: Yup.number().required('Required'),
-  sportsBraUnderbust: Yup.number().required('Required'),
+  sportsBraBust: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'sportsBra',
+    then: Yup.number().required('Required'),
+  }),
+  sportsBraUnderbust: Yup.number().when('clothingType', {
+    is: (clothingType) => clothingType === 'sportsBra',
+    then: Yup.number().required('Required'),
+  }),
 });
 
-const index = () => {
+const Index = (props) => {
+  const { id } = useParams();
+  const { Global } = React.useContext(GlobalContext);
+
   const formik = useFormik({
     initialValues: {
-      // Initialize all form fields
-      chest: '',
-      waist: '',
-      hips: '',
-      neck: '',
-      sleeveLength: '',
-      backLength: '',
-      shoulderWidth: '',
-
-      trouserWaist: '',
-      hip: '',
-      inseam: '',
-      outseam: '',
-      thigh: '',
-
-      shortsWaist: '',
-      shortsHip: '',
-      shortsOutseam: '',
-
-      bust: '',
-      womenWaist: '',
-      womenHips: '',
-      shoulderToWaist: '',
-      totalLength: '',
-
-      skirtWaist: '',
-      skirtHips: '',
-      skirtLength: '',
-
-      leggingsWaist: '',
-      leggingsHips: '',
-      inseamLeggings: '',
-      thighLeggings: '',
-
-      sportsBraBust: '',
-      sportsBraUnderbust: '',
+      clothingType: '',
+      desc: '',
     },
     validationSchema: measurementSchema,
-    onSubmit: (values) => {
-      // Handle form submission here
-      console.log(values);
+    onSubmit: async (values) => {
+      const response = await postResponse('/query/addQuery', {
+        pid: id,
+        uid: Global?.login?.admin?._id,
+        ...values,
+      });
+
+      console.log(response);
+      return response
+      // Handle form submission based on clothing type
+      // switch (values.clothingType.value) {
+      //   case 'suits':
+      //     // Handle submission for Suits, Tuxedos, Dress Shirts, and Jackets
+      //     response = {
+      //       pid: id,
+      //       uid: Global?.
+      //       chest: values.chest,
+      //       waist: values.waist,
+      //       hips: values.hips,
+      //       neck: values.neck,
+      //       sleeveLength: values.sleeveLength,
+      //       backLength: values.backLength,
+      //       shoulderWidth: values.shoulderWidth,
+      //     };
+      //     console.log('Submitting for Suits:', values);
+      //     break;
+      //   case 'trousers':
+      //     // Handle submission for Formal Trousers and Jeans
+      //     console.log('Submitting for Trousers:', values);
+      //     break;
+      //   case 'shorts':
+      //     // Handle submission for Athletic Shorts
+      //     console.log('Submitting for Shorts:', values);
+      //     break;
+      //   case 'women':
+      //     // Handle submission for Women's Clothing
+      //     console.log('Submitting for Women:', values);
+      //     break;
+      //   case 'skirts':
+      //     // Handle submission for Skirts
+      //     console.log('Submitting for Skirts:', values);
+      //     break;
+      //   case 'leggings':
+      //     // Handle submission for Leggings and Yoga Pants
+      //     console.log('Submitting for Leggings:', values);
+      //     break;
+      //   case 'sportsBra':
+      //     // Handle submission for Sports Bras
+      //     console.log('Submitting for Sports Bras:', values);
+      //     break;
+      //   default:
+      //     console.log('Unknown clothing type');
+      //     break;
+      // }
     },
   });
+
+  const handleClothingTypeChange = (selectedOption) => {
+    // Reset form values when clothing type changes
+    formik.resetForm();
+    formik.setFieldValue('clothingType', selectedOption);
+  };
 
   return (
     <div className="">
@@ -123,9 +239,7 @@ const index = () => {
           placeholder={'Select a clothing type'}
           className="basic-multi-select"
           classNamePrefix="select"
-          handleChange={(selectedOption) =>
-            formik.setFieldValue('clothingType', selectedOption)
-          }
+          handleChange={handleClothingTypeChange}
           onBlur={formik.handleBlur}
           value={formik.values.clothingType}
         />
@@ -307,8 +421,8 @@ const index = () => {
           </div>
         )}
 
-        <>
-          <div className='mt-5'>
+        {/* <>
+          <div className="mt-5">
             <label className="relative block mb-1.5 font-bold font-medium text-black">
               {'Description'}
             </label>
@@ -319,12 +433,12 @@ const index = () => {
               name="desc"
               max={50}
               handleChange={(selectedOption) =>
-                formik.setFieldValue('desc', selectedOption)
+                formik.setFieldValue('desc', selectedOption.target.value)
               }
               value={formik.values.desc}
             />
           </div>
-        </>
+        </> */}
         <button
           type="submit"
           className="mt-4 bg-primary w-full text-white px-4 py-2 rounded-md hover:bg-primary focus:outline-none focus:ring focus:border-primary"
@@ -336,4 +450,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

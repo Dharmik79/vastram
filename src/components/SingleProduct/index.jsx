@@ -6,6 +6,8 @@ import { GlobalContext } from './../../context/States/GlobalState';
 
 export default function index() {
   const [searchParams] = useSearchParams();
+  const [pid] = React.useState(searchParams.get('id'));
+
   const [state, setState] = React.useState({
     data: {
       count: 1,
@@ -153,7 +155,6 @@ export default function index() {
                 <a
                   class="card__btn btn btn_green"
                   onClick={async () => {
-                   
                     await addCart(state?.data);
                   }}
                 >
@@ -161,7 +162,7 @@ export default function index() {
                 </a>
                 <Link
                   class="card__btn btn btn_green"
-                  to='/measurementForm'
+                  to={'/measurementForm?id=' + pid}
                 >
                   Customize
                 </Link>
@@ -199,7 +200,7 @@ export default function index() {
                 </div>
                 <div class="details__item">
                   <div class="details__box">
-                    <div class="details__category">Trending</div> 
+                    <div class="details__category">Trending</div>
                   </div>
                 </div>
               </div>
