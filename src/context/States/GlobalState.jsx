@@ -14,6 +14,7 @@ const initialState = {
   image: isValidJSON(image) ? JSON.parse(image) : undefined,
   role: isValidJSON(role) ? JSON.parse(role) : undefined,
   countData: {},
+  cart:[]
 };
 
 function isValidJSON(value) {
@@ -81,7 +82,20 @@ export const GlobalProvider = ({ children }) => {
       payload: login,
     });
   }
+  
+  function addCart(item) {
+    dispatch({
+      type: 'UPDATE_CART',
+      payload: {...state.cart,item},
+    });
+  }
 
+  function deleteCart(item) {
+    dispatch({
+      type: 'DELETE_CART',
+      payload: state.cart.filter((i)=>i.id!==item.id),
+    });
+  }
   function storeReset() {
     window.sessionStorage.clear();
     window.sessionStorage.clear();
@@ -101,6 +115,8 @@ export const GlobalProvider = ({ children }) => {
         storeMaster,
         storeImage,
         storeCountData,
+        addCart,
+        deleteCart
       }}
     >
       {children}

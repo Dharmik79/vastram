@@ -34,6 +34,12 @@ export default function appReducer(state, action) {
         ...state,
         image: action.payload,
       };
+      case 'UPDATE_CART':{
+        return {
+          ...state,
+          cart: action.payload,
+        };
+      }
 
     case 'RESET':
       return {

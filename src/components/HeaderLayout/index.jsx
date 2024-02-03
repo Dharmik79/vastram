@@ -6,15 +6,5 @@ import LayoutWrapper from '../../components/Megamenu/index';
 export default function index({ hideHeaderPaths = [] }) {
   const { pathname } = useLocation();
 
-  return (
-    <>
-       {!hideHeaderPaths.includes(pathname) ? (
-       
-          <Outlet />
-
-      ) : ( 
-      <Outlet />
-       )} 
-    </>
-  );
+  return <>{!hideHeaderPaths.includes(pathname) ? <Outlet /> : <Outlet />}</>;
 }
