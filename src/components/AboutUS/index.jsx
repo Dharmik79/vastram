@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../assets/img/company-photo.jpg';
+import image from '../../assets/images/model.jpg';
 
 export default function index() {
   const photoStyle = {
@@ -24,7 +24,7 @@ export default function index() {
                 <h2 class="company__title title">
                   How and When it has All Started
                 </h2>
-                <div class="company__photo" style={photoStyle}></div>
+                <img src={photoStyle?.backgroundImage}></img>
               </div>
               <div class="company__col">
                 <div class="company__item">
