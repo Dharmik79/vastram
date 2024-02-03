@@ -47,7 +47,7 @@ const index = () => {
               {Global?.login?.admin?.name}
             </h3>
             <div class="text-xs  text-slate-400 font-bold uppercase">
-              <i class="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
+              <i class="fas fa-map-marker-alt mr-2 text-slate-400 mt-3 opacity-75"></i>
               Regina, Canada
             </div>
           </div>

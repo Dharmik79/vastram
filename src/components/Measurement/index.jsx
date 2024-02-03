@@ -167,8 +167,12 @@ const Index = (props) => {
         ...values,
       });
 
-      console.log(response);
-      return response
+      if (response.result === 0) {
+        setTimeout(async () => {
+          window.location.href = '/';
+        }, 2000);
+      }
+      return response;
       // Handle form submission based on clothing type
       // switch (values.clothingType.value) {
       //   case 'suits':
