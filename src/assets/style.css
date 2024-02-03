@@ -4222,19 +4222,16 @@ body.dark .checkbox__input:checked+.checkbox__in .checkbox__tick {
 }
 
 .checkout__step.active:before {
-  width: 33.33%;
+  width: 50%;
 }
 
 .checkout__step:first-child:before {
   left: 0;
 }
 
-.checkout__step:nth-child(2):before {
-  left: 33.33%;
-}
 
 .checkout__step:nth-child(3):before {
-  left: 66.66%;
+  left: 100%;
 }
 
 .checkout__step:not(:last-child) {
