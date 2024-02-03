@@ -86,7 +86,7 @@ export const GlobalProvider = ({ children }) => {
   function addCart(item) {
     dispatch({
       type: 'UPDATE_CART',
-      payload: {...state.cart,item},
+      payload: [...state.cart,item],
     });
   }
 

@@ -3,7 +3,9 @@ import { GlobalContext } from './../../context/States/GlobalState';
 
 const Index = () => {
   const { Global } = React.useContext(GlobalContext);
-  console.log(Global?.cart);
+
+  const total=Global?.cart?.reduce((acc, item) => acc + ((item?.price||100)*(item?.count ||1)), 0) ||0;
+
   return (
     <div class="page">
       <div class="cart section">
@@ -22,16 +24,16 @@ const Index = () => {
                       <a class="cart__preview" href="#">
                         <img
                           class="cart__pic"
-                          src="img/products/product-pic-4.png"
+                          src={item?.image?.[0]}
                           alt=""
                         />
                       </a>
                       <div class="cart__details">
                         <a class="cart__product" href="#">
-                          Sleepless Night
+                          {item?.name}
                         </a>
                         <div class="cart__price">
-                          <div class="cart__actual">$97</div>
+                          <div class="cart__actual">${item?.price}</div>
                         </div>
                         <div class="cart__control">
                           <div class="cart__counter counter js-counter">
@@ -46,7 +48,7 @@ const Index = () => {
                             <input
                               class="counter__input js-counter-input"
                               type="text"
-                              value="1"
+                              value={item?.count ||1}
                               size="3"
                             />
                             <button
@@ -58,11 +60,7 @@ const Index = () => {
                               </svg>
                             </button>
                           </div>
-                          <button class="cart__remove">
-                            <svg class="icon icon-close">
-                              <use xlink:href="img/sprite.svg#icon-close"></use>
-                            </svg>
-                          </button>
+                         
                         </div>
                       </div>
                     </div>
@@ -76,19 +74,16 @@ const Index = () => {
                 <div class="cart__wrap">
                   <div class="cart__line">
                     <div class="cart__text">Subtotal:</div>
-                    <div class="cart__text">$209</div>
+                    <div class="cart__text">${total}</div>
                   </div>
                   <div class="cart__line">
                     <div class="cart__text">Tax:</div>
-                    <div class="cart__text">$20.73</div>
+                    <div class="cart__text">${total*0.11}</div>
                   </div>
-                  <div class="cart__line">
-                    <div class="cart__text">Shipping:</div>
-                    <div class="cart__text">$15</div>
-                  </div>
+                 
                   <div class="cart__line cart__line_total">
                     <div class="cart__text">Total:</div>
-                    <div class="cart__text">$224</div>
+                    <div class="cart__text">${Math.floor(total*1.11).toFixed(2)}</div>
                   </div>
                 </div>
                 <a class="cart__btn btn btn_green btn_wide" href="">

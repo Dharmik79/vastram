@@ -3,9 +3,12 @@ import './index.css';
 import Logo from '../../assets/images/logos.svg';
 import Avatar from '../../assets/images/avatar.png';
 import Cart from '../../icons/availableIcon';
+import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../context/States/GlobalState';
 const FashionMegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
-
+  const { Global } = React.useContext(GlobalContext);
+  console.log(Global?.cart);
   const categories = [
     {
       name: 'Men',
@@ -66,9 +69,24 @@ const FashionMegaMenu = () => {
         </div>
         <div className="mr-5">
           <div className="flex items-center gap-3">
-            <div className="relative min-w-[48px] border-2 border-black">
-              <Cart/>
-            </div>
+            {Global?.cart?.length > 0 ? (
+              <div
+                className={`relative min-w-[48px] border-2 border-black  header__link_cart`}
+              >
+                <Link to="/cart">
+                  <Cart />
+                </Link>
+              </div>
+            ) : (
+              <div
+                className={`relative min-w-[48px] border-2 border-black header__link `}
+              >
+                <Link to="/cart">
+                  <Cart />
+                </Link>
+              </div>
+            )}
+
             <div className="relative min-w-[48px] border-2 border-black">
               <img
                 src={Avatar}
