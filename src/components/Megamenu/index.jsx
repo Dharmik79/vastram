@@ -68,36 +68,37 @@ const FashionMegaMenu = () => {
             </div>
           </div>
         </div>
-        <div className="mr-5">
-          <div className="flex items-center gap-3">
-            {Global?.cart?.length > 0 ? (
-              <div
-                className={`relative min-w-[48px] border-2 border-black  header__link_cart`}
-              >
-                <Link to="/cart">
-                  <Cart />
-                </Link>
-              </div>
-            ) : (
-              <div
-                className={`relative min-w-[48px] border-2 border-black header__link `}
-              >
-                <Link to="/cart">
-                  <Cart />
-                </Link>
-              </div>
-            )}
+        {Global?.login?.admin && (
+          <div className="mr-5">
+            <div className="flex items-center gap-3">
+              {Global?.cart?.length > 0 ? (
+                <div
+                  className={`relative min-w-[48px] border-2 border-black  header__link_cart`}
+                >
+                  <Link to="/cart">
+                    <Cart />
+                  </Link>
+                </div>
+              ) : (
+                <div
+                  className={`relative min-w-[48px] border-2 border-black header__link `}
+                >
+                  <Link to="/cart">
+                    <Cart />
+                  </Link>
+                </div>
+              )}
 
-            <div className="relative min-w-[48px] border-2 border-black">
-              <img
-                src={Avatar}
-                className="object-cover w-16 h-16 border-2 border-white rounded-full"
-                alt=""
-              />
+              <div className="relative min-w-[48px] border-2 border-black">
+                <img
+                  src={Avatar}
+                  className="object-cover w-16 h-16 border-2 border-white rounded-full"
+                  alt=""
+                />
+              </div>
             </div>
-            
           </div>
-        </div>
+        )}
       </div>
     </>
   );
