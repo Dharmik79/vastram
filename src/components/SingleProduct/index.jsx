@@ -25,7 +25,12 @@ export default function index() {
 
         if (index > -1) {
           res.payload.photos[0].count = Global?.cart[index]?.count || 1;
-          setState({ data: {...res?.payload?.photos[0],sizeSelected:Global?.cart[index]?.sizeSelected }});
+          setState({
+            data: {
+              ...res?.payload?.photos[0],
+              sizeSelected: Global?.cart[index]?.sizeSelected,
+            },
+          });
         }
       } else {
         setState({ data: { ...res?.payload?.photos[0], count: 1 } });
@@ -177,10 +182,9 @@ export default function index() {
               <div>
                 <div class="details__item">
                   <div class="details__box">
-                    <div class="details__category">Natural</div>
+                    <div class="details__category">Material & Care</div>
                     <div class="details__text">
-                      We are using natural ingredients only when creating our
-                      products.
+                      100% ORIGINAL guarantee for all products
                     </div>
                   </div>
                 </div>
@@ -201,10 +205,9 @@ export default function index() {
                     </svg>
                   </div>
                   <div class="details__box">
-                    <div class="details__category">Full Protection</div>
+                    <div class="details__category">Dry Clean</div>
                     <div class="details__text">
-                      This product provides broad spectrum SPF 50 and blue light
-                      protection.
+                      Return within 14days of receiving your order
                     </div>
                   </div>
                 </div>
@@ -237,7 +240,6 @@ export default function index() {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
