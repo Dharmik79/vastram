@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-import Logo from '../../assets/images/logo.svg';
+import Logo from "../../assets/images/logo.png";
 const FashionMegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -38,7 +38,7 @@ const FashionMegaMenu = () => {
     <>
       <div class="navbar">
         <a href="#home" class="navbar-logo">
-          <img src={Logo} alt="Logo" style={{ height: 60 }} />
+          <img src={Logo} alt="Logo" style={{ height: 100 }} />
         </a>
         <div class="dropdown">
           <button class="dropbtn">
