@@ -151,25 +151,25 @@ export default function index() {
         <div class="details__center center">
           <div class="details__row">
             <div class="details__col">
-              <h1 class="details__title title">Explore the Features</h1>
+              <h1 class="details__title title">Size Chart</h1>
+              <iframe
+              width="853"
+              height="480"
+              src="https://www.youtube.com/embed/UcveEV4sSoE"
+
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+             
             </div>
+            
             <div class="details__col">
+            <div>
+          
+ 
               <div class="details__item">
-                <div class="details__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    fill="none"
-                  >
-                    <path
-                      d="M15.993 2l7.783 8.203c1.54 1.62 2.587 3.687 3.012 5.937a12.18 12.18 0 0 1-.625 6.7c-.832 2.12-2.242 3.93-4.05 5.205S18.176 30 16 30s-4.303-.68-6.112-1.955-3.22-3.086-4.05-5.205a12.18 12.18 0 0 1-.625-6.7c.425-2.25 1.473-4.315 3.012-5.937L15.993 2z"
-                      stroke="#000"
-                      stroke-width="2.5"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </div>
+            
                 <div class="details__box">
                   <div class="details__category">Natural</div>
                   <div class="details__text">
@@ -225,6 +225,7 @@ export default function index() {
                     offer.
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>
