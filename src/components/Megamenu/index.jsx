@@ -42,27 +42,23 @@ const FashionMegaMenu = () => {
         </a>
         <div class="dropdown">
           <button class="dropbtn">
-            Dropdown
+            Categories
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
             <div class="column">
-              <h3>Category 1</h3>
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
+              <h3>Mens</h3>
+              <a href="#">Suits</a>
+              <a href="#">Shirts</a>
+              <a href="#">Formal Trousers</a>
+              <a href="#">Tuxedos</a>
             </div>
             <div class="column">
-              <h3>Category 2</h3>
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-            <div class="column">
-              <h3>Category 3</h3>
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
+              <h3>Womens</h3>
+              <a href="#">Dresses</a>
+              <a href="#">Blouses</a>
+              <a href="#">Skirts</a>
+              <a href="#">Leggings</a>
             </div>
           </div>
         </div>

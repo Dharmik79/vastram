@@ -2,7 +2,7 @@
     overflow: hidden;
     background-color: white;
     font-family: Arial;
-    display: flex;
+    display: border-box;  
   }
   
   /* Links inside the navbar */
