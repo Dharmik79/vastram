@@ -16,21 +16,15 @@ export default function index() {
   const { Global, storeRole } = useContext(GlobalContext);
   const [state, setState] = useState({ data: [] });
 
-  const [showDetails, setShowDetails] = useState(false);
-  const [data, setData] = useState(null);
-
-  const showDetailsHandle = (dayStr) => {
-    setData(dayStr);
-    setShowDetails(true);
-  };
-
-  const currentDate = new Date();
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
+  const getData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/roles');
+ console.log('response', response);
+    }
+    catch (error) {
+      console.error('Error:', error);
+    }
+  }
  
   
 
