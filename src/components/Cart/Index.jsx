@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalContext } from './../../context/States/GlobalState';
-
+import { Link } from 'react-router-dom';
 const Index = () => {
   const { Global } = React.useContext(GlobalContext);
 
@@ -95,9 +95,9 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                <a class="cart__btn btn btn_green btn_wide" href="/checkout">
+                <Link class="cart__btn btn btn_green btn_wide" to="/checkout">
                   Checkout
-                </a>
+                </Link>
               </div>
             </div>}
           </div>

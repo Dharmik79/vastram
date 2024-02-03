@@ -7,7 +7,7 @@ const index = () => {
   const { Global } = React.useContext(GlobalContext);
 
   const total=Global?.cart?.reduce((acc, item) => acc + ((item?.price||100)*(item?.count ||1)), 0) ||0;
-
+console.log(total)
   return (
     <>
       <div class="page">
