@@ -70,20 +70,22 @@ const FashionMegaMenu = () => {
               )}
 
               <div className="h-full">
-              <AvatarDropdown />
-            </div>
-            <div
-              className="h-full"
-              onClick={() => {
-                // Clear session storage
-                sessionStorage.clear();
-                window.location.href = '/login';
-                // Optionally, you can also remove specific items from session storage using removeItem
-                // sessionStorage.removeItem('yourKey');
-              }}
-            >
-              <FilterIcon />
-            </div>
+                <Link to="/profile">
+                  <AvatarDropdown />
+                </Link>
+              </div>
+              <div
+                className="h-full"
+                onClick={() => {
+                  // Clear session storage
+                  sessionStorage.clear();
+                  window.location.href = '/login';
+                  // Optionally, you can also remove specific items from session storage using removeItem
+                  // sessionStorage.removeItem('yourKey');
+                }}
+              >
+                <FilterIcon />
+              </div>
             </div>
           </div>
         )}
