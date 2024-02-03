@@ -31,55 +31,206 @@ export default function index() {
     month: 'long',
     day: 'numeric',
   };
-  const formattedDate = currentDate.toLocaleDateString('en-US', options);
-
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const getGreeting = () => {
-    const currentHour = currentTime.getHours();
-    let greeting = '';
-
-    if (currentHour >= 5 && currentHour < 12) {
-      greeting = 'Good morning';
-    } else if (currentHour >= 12 && currentHour < 17) {
-      greeting = 'Good afternoon';
-    } else {
-      greeting = 'Good evening';
-    }
-
-    return greeting;
-  };
+ 
+  
 
   return (
-    <div className="p-4 flex">
-      <div className="user-card mt-3 bg-white shadow-md rounded-md customWidget flex mr-3">
-        <div className="user-image-container pr-4">
-          <img
-            src={
-              Global?.login?.admin?.avatarPic ??
-              'https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg'
-            }
-            alt={'dd'}
-            width="150"
-            height="150"
-            className="user-image rounded-full"
-          />
-        </div>
-        <div className="user-info">
-          <h2 className="text-xl font-semibold">
-            {getGreeting()}, {Global?.login?.admin?.name}
-          </h2>
-          <p className="text-md mt-2 text-gray-600">
-            <b>{formattedDate}</b>
-          </p>
+    <div>
+      <div class="products products_main section">
+        <div class="products__center center">
+          <div class="products__list">
+            <div class="product">
+              <div class="product__sale">20% OFF</div>
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-1.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Sun Cream
+              </a>
+              <div class="product__details">
+                <div class="product__category yellow">Sun Care</div>
+                <div class="product__price">
+                  <span class="product__old">$30</span>
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__sale">20% OFF</div>
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-2.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Night Eye Cream
+              </a>
+              <div class="product__details">
+                <div class="product__category blue">EYE CARE</div>
+                <div class="product__price">
+                  <span class="product__old">$30</span>
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-3.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Acne Skin Gel
+              </a>
+              <div class="product__details">
+                <div class="product__category pink">Treatments</div>
+                <div class="product__price">
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-4.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Anti Dry Skin
+              </a>
+              <div class="product__details">
+                <div class="product__category green">Moisturizers</div>
+                <div class="product__price">
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__new">NEW IN</div>
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-5.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Body Protection
+              </a>
+              <div class="product__details">
+                <div class="product__category yellow">Treatments</div>
+                <div class="product__price">
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-6.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                All In One Gel
+              </a>
+              <div class="product__details">
+                <div class="product__category blue">FEATURED</div>
+                <div class="product__price">
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__sale">20% OFF</div>
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-7.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Deep Treatment
+              </a>
+              <div class="product__details">
+                <div class="product__category pink">ON SALE</div>
+                <div class="product__price">
+                  <span class="product__old">$30</span>
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product__view">
+                <a class="product__preview" href="product.html">
+                  <img
+                    class="product__pic"
+                    src="img/products/product-pic-8.png"
+                    alt=""
+                  />
+                </a>
+                <a class="product__btn btn btn_green" href="cart.html">
+                  Add to Cart
+                </a>
+              </div>
+              <a class="product__name" href="product.html">
+                Morning Shine
+              </a>
+              <div class="product__details">
+                <div class="product__category green">NIGHT CARE</div>
+                <div class="product__price">
+                  <span class="product__actual">$20</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
