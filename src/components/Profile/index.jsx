@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GlobalContext } from '../../context/States/GlobalState';
 import { Link } from 'react-router-dom';
 import './index.css';
+import { getResponse } from '../../services/CommonAPI';
 const index = () => {
   const { Global } = React.useContext(GlobalContext);
-  const data = [
-    { id: 1, name: 'Product A', category: 'Category 1', price: '$100' },
-    { id: 2, name: 'Product B', category: 'Category 2', price: '$200' },
-    // Add more data as needed
-  ];
+  const [data, setData] = React.useState([]);
+
+  const getData = async () => {
+    try {
+      let response = await getResponse(
+        '/order/getOrder/?uid=' + Global?.login?.admin?._id,
+        {}
+      );
+
+      if (response?.payload?.order) {
+        setData(response?.payload?.order || []);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  React.useEffect(() => {
+    getData();
+  }, []);
   return (
     <div>
       <div class="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-4">
@@ -38,38 +54,28 @@ const index = () => {
         </div>
       </div>
       <div className="table-responsive">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.category}</td>
-              <td>{item.price}</td>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+
+              <th>Price</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    
+          </thead>
+          <tbody>
+            {data?.map((item) => {
+              return (
+                <tr key={item?.createdAt}>
+                  <td>{item?.orderStatus}</td>
 
-
-
-
-   
-
-
-
-  
-  
+                  <td>{item?.price}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
