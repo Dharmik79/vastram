@@ -67,15 +67,18 @@ export default function index() {
             <div class="card__col">
               <h1 class="card__title title">{state?.data?.name}</h1>
               <div class="card__details">
-                <div class="card__category yellow">Sun Care</div>
+                {state?.data?.size?.map((sizeData, index) => {
+                  return (
+                    <div class="card__category yellow" key={index}>
+                      {sizeData}
+                    </div>
+                  );
+                })}
                 <div class="card__prices">
-                  <div class="card__old">$30</div>
-                  <div class="card__actual">$20</div>
+                  <div class="card__actual">${state?.data?.price}</div>
                 </div>
               </div>
-              <div class="card__code">
-                SKU:<span class="card__number">123456789</span>
-              </div>
+
               <div class="card__control">
                 <div class="card__counter counter js-counter">
                   <button
