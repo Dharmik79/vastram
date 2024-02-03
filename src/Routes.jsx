@@ -14,6 +14,7 @@ const Home = lazy(() => import('./components/HomePage/index'));
 const HeaderLayout = lazy(() => import('./components/HeaderLayout/index'));
 const SingleProduct = lazy(() => import('./components/SingleProduct/index'));
 const Login = lazy(() => import('./components/Login/index'));
+const AboutUS = lazy(() => import('./components/AboutUS/index'));
 const OTP = lazy(() => import('./components/OTP/index'));
 const SignUpPage = lazy(() => import('./components/SignUpPage/index'));
 const PasswordReset = lazy(() => import('./components/PasswordReset/index'));
@@ -101,6 +102,7 @@ export default function Routes() {
           <Route path="/login" exact element={<Login />} />
           <Route path="/sign-up" exact element={<SignUpPage />} />
           <Route path="/NoFound" exact element={<NoFound />} />
+          <Route path="/AboutUS" exact element={<AboutUS />} />
           <Route path="/forgot-password" exact element={<ForgotPassword />} />
           <Route path="/reset-password" exact element={<PasswordReset />} />
           <Route path="*" element={<NoFound />} />
