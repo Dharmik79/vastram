@@ -1,7 +1,4 @@
 // svg icons support ie11
-(function () {
-    svg4everybody();
-})();
 
 // header
 (function () {
