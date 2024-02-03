@@ -5,7 +5,6 @@ function Loader({ outerCss }) {
     <div
       className={`fixed  h-screen w-screen flex items-center justify-center ${outerCss}`}
     >
-      {' '}
       {/* <ReactLogo /> */}
       <span className={`loader `}></span>
     </div>
