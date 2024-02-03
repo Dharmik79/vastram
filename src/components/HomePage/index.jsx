@@ -34,17 +34,11 @@ export default function index() {
                 <div class="product" key={key}>
                   <div class="product__sale">20% OFF</div>
                   <div class="product__view">
-                    <a class="product__preview" href="product.html">
-                      <img class="product__pic" src={item?.image[0]} alt="" />
-                    </a>
-                    <a
-                      class="product__btn btn btn_green"
-                      onClick={() => {
-                        addCart(item);
-                      }}
-                    >
-                      Add to Cart
-                    </a>
+                    <Link to={`/single-product?id=${item?._id}`}>
+                      <a class="product__preview">
+                        <img class="product__pic" src={item?.image[0]} alt="" />
+                      </a>
+                    </Link>
                   </div>
                   <a class="product__name" href="product.html">
                     Sun Cream
